@@ -8,10 +8,11 @@ function App() {
     if(val === '介绍') {
       console.log("介绍");
     } else if (val === '简历') {
-      console.log('简历');
       navigate('/resume')
     } else {
-      console.log('源码');
+      console.log(window.electron)
+      window.electron.ipcRenderer.send("some-event","some message!")
+      window.electron.shell.openExternal('https://gitee.com/')
     }
   }
 
