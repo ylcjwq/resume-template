@@ -1,18 +1,17 @@
 import './style/index.scss'
 import Logo from './assets/react.svg'
 import { useNavigate } from "react-router";
+import CHECK_HOME_ITEM from "./common/constants/checkHomeItem.ts";
+import type HomeCheck from './common/type/homeCheck.ts'
 
 function App() {
   const navigate = useNavigate();
-  const clickToLick = (val: string) => {
-    if(val === '介绍') {
+  const clickToLick = (val: HomeCheck) => {
+    if(val.text !== '简历') {
       // 给主进程发送消息
-      window.electron.ipcRenderer.send("open","https://gitee.com/yuan-longcheng/resume-template/blob/master/README.md");
-    } else if (val === '简历') {
-      navigate('/resume');
+      window.electron.ipcRenderer.send("open",val.url);
     } else {
-      // 给主进程发送消息
-      window.electron.ipcRenderer.send("open","https://gitee.com/yuan-longcheng/resume-template");
+      navigate(val.url);
     }
   }
 
@@ -24,9 +23,9 @@ function App() {
             <div className={'title'}> 简历平台 </div>
             <div className={'tips'}> 一个模板简历制作平台，让你的简历更加出众 </div>
             <div className={'action'}>
-              {['介绍', '简历', '源码'].map((item, index) => {
-                return <div key={index} className={'item'} onClick={() => {clickToLick(item)}}>
-                  {item}
+              {CHECK_HOME_ITEM.map((item: HomeCheck) => {
+                return <div key={item.key} className={'item'} onClick={() => {clickToLick(item)}}>
+                  {item.text}
                 </div>
               })}
             </div>
