@@ -6,13 +6,13 @@ function App() {
   const navigate = useNavigate();
   const clickToLick = (val: string) => {
     if(val === '介绍') {
-      console.log("介绍");
+      // 给主进程发送消息
+      window.electron.ipcRenderer.send("open","https://gitee.com/yuan-longcheng/resume-template/blob/master/README.md");
     } else if (val === '简历') {
-      navigate('/resume')
+      navigate('/resume');
     } else {
-      console.log(window.electron)
-      window.electron.ipcRenderer.send("some-event","some message!")
-      window.electron.shell.openExternal('https://gitee.com/')
+      // 给主进程发送消息
+      window.electron.ipcRenderer.send("open","https://gitee.com/yuan-longcheng/resume-template");
     }
   }
 
