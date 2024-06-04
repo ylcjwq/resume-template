@@ -10,6 +10,7 @@ function App() {
   const clickToLick = (val: HomeCheck) => {
     if(isHttpOrHttpsUrl(val.url)) {
       // 给主进程发送消息
+      // @ts-ignore
       window.electron.ipcRenderer.send("open",val.url);
     } else {
       navigate(val.url);
