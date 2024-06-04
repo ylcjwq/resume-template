@@ -1,13 +1,14 @@
 import './style/index.scss'
 import Logo from './assets/react.svg'
 import { useNavigate } from "react-router";
-import CHECK_HOME_ITEM from "./common/constants/checkHomeItem.ts";
-import type HomeCheck from './common/type/homeCheck.ts'
+import CHECK_HOME_ITEM from "./constants/checkHomeItem.ts";
+import type HomeCheck from './type/homeCheck.ts'
+import {isHttpOrHttpsUrl} from "./utils/checkItem.ts";
 
 function App() {
   const navigate = useNavigate();
   const clickToLick = (val: HomeCheck) => {
-    if(val.text !== '简历') {
+    if(isHttpOrHttpsUrl(val.url)) {
       // 给主进程发送消息
       window.electron.ipcRenderer.send("open",val.url);
     } else {
