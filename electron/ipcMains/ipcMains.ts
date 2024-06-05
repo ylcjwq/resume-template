@@ -18,6 +18,9 @@ const ipcFn = () => {
       event.returnValue = error.message;
     }
   })
+
+  // 获取项目的绝对路径
+
 }
 
 export default ipcFn
