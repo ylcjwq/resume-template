@@ -68,4 +68,4 @@ app.on('activate', () => {
 
 app.whenReady().then(createWindow)
 
-ipcFn();
+ipcFn(app);

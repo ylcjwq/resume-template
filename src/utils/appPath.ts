@@ -2,7 +2,7 @@
 const getAppPath = () => {
     return new Promise(
         (resolve: (value: string) => void, reject: (value: Error) => void) => {
-            window.electron.ipcRenderer.send('getPath', '');
+            window.electron.ipcRenderer.send('getPath');
             window.electron.ipcRenderer.on('replyPath', (_, arg: string) => {
                 if (arg) {
                     resolve(arg);
