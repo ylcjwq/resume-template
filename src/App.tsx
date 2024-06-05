@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import CHECK_HOME_ITEM from "./constants/checkHomeItem.ts";
 import type HomeCheck from './type/homeCheck.ts'
 import {isHttpOrHttpsUrl} from "./utils/checkItem.ts";
+import { useSelector } from 'react-redux'
 
 function App() {
   const navigate = useNavigate();
@@ -17,12 +18,14 @@ function App() {
     }
   }
 
+  const { appName } = useSelector(state => state.globalModel)
+
   return (
       <>
         <div className={'root'}>
           <div className={'container'}>
             <img src={Logo} alt={""} />
-            <div className={'title'}> 简历平台 </div>
+            <div className={'title'}> {appName} </div>
             <div className={'tips'}> 一个模板简历制作平台，让你的简历更加出众 </div>
             <div className={'action'}>
               {CHECK_HOME_ITEM.map((item: HomeCheck) => {

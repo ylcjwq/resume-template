@@ -1,10 +1,10 @@
-import { app, BrowserWindow, ipcMain, shell  } from 'electron'
-import { createRequire } from 'node:module'
+import { app, BrowserWindow } from 'electron'
+// import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
-import { ipcFn } from './ipcMains.ts'
+import ipcFn from './ipcMains/ipcMains.ts'
 
-const require = createRequire(import.meta.url)
+// const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // The built directory structure
