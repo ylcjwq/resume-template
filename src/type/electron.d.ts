@@ -1,6 +1,6 @@
-// electron.d.ts
+// 扩展Window上的electron声明
 declare global {
-    interface window extends Window{
+    interface Window{
         electron: typeof Electron;
     }
 }
