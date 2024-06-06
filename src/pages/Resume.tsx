@@ -1,5 +1,6 @@
 import getAppPath from "../utils/appPath.ts";
 import Button from "../components/Button";
+import Input from "@/components/Input";
 
 const Resume = () => {
     getAppPath().then(appPath => {
@@ -15,6 +16,7 @@ const Resume = () => {
             <Button width={100}>
                 我是简历模块
             </Button>
+            <Input/>
         </div>
     )
 }

@@ -1,10 +1,10 @@
 /**
  * @description 按钮组件
  */
-import type Button from '@/type/Button.ts';
+import type ButtonType from '@/type/Button.ts';
 import './index.scss';
 
-const Button = ({ size = 'small', style, width, children, disabled, className, onClick, border = true }: Button) => {
+const Button = ({ size = 'small', style, width, children, disabled, className, onClick, border = true }: ButtonType) => {
     return (
         <div
             style={{
