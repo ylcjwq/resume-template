@@ -19,7 +19,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["./src/type/electron.d.ts"]
+    "typeRoots": ["./src/type/electron.d.ts"],
+    "baseUrl": ".", // 这个选项很重要
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src", "electron"],
   "references": [{ "path": "./tsconfig.node.json" }]
