@@ -4,7 +4,7 @@ import fileAction from './file.ts'
 const ipcFn = (app: Electron.App) => {
   // 打开外部网页
   ipcMain.on('open', (_,arg) => {
-    shell.openExternal(arg);
+    shell.openExternal(arg).then();
   })
 
   // 文件读取操作
@@ -14,7 +14,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('fileReadReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      event.returnValue = error.message;
+      event.returnValue = (error as Error).message;
     }
   })
 
@@ -25,7 +25,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('replyPath', appPath);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      event.returnValue = error.message;
+      event.returnValue = (error as Error).message;
     }
   })
 }

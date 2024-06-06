@@ -11,13 +11,14 @@ function App() {
   const clickToLick = (val: HomeCheck) => {
     if(isHttpOrHttpsUrl(val.url)) {
       // 给主进程发送消息
-      // @ts-ignore
       window.electron.ipcRenderer.send("open",val.url);
     } else {
       navigate(val.url);
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const { appName } = useSelector(state => state.globalModel)
 
   return (
