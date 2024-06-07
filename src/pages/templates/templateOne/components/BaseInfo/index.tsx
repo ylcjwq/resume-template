@@ -2,13 +2,13 @@
  * @desc 基本信息
  * @author pengdaokuan
  */
-import '@/pages/templates/styles/template-one.scss';
+import style from '@/pages/templates/styles/template-one.module.scss';
 
 function BaseInfo() {
   return (
-    <div className="container">
-      <p className="title">基本信息 Basic</p>
-      <ul className="content">
+    <div className={style.container}>
+      <p className={style.title}>基本信息 Basic</p>
+      <ul className={style.content}>
         <li>院校：湖南瞎说大学</li>
         <li>专业：软件工程</li>
         <li>学历：本科</li>
