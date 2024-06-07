@@ -3,13 +3,13 @@
  * @author pengdaokuan
  */
 
-import '@/pages/templates/styles/template-one.scss';
+import style from '@/pages/Resume/ResumeContent/UseTemplate/styles/template-one.module.scss';
 
 function Certificate() {
   return (
-    <div className="container">
-      <p className="title">荣誉奖励 Certificate</p>
-      <ul className="content">
+    <div className={style.container}>
+      <p className={style.title}>荣誉奖励 Certificate</p>
+      <ul className={style.content}>
         <li>全国英语十级证书</li>
         <li>全国计算机专家级证书</li>
         <li>广东第一帅哥（自封）</li>

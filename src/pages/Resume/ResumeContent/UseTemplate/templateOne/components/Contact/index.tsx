@@ -2,13 +2,13 @@
  * @desc 联系方式
  * @author pengdaokuan
  */
-import '@/pages/templates/styles/template-one.scss';
+import style from '@/pages/Resume/ResumeContent/UseTemplate/styles/template-one.module.scss';
 
 function Contact() {
   return (
-    <div className="container">
-      <p className="title">联系方式 Contact</p>
-      <ul className="content">
+    <div className={style.container}>
+      <p className={style.title}>联系方式 Contact</p>
+      <ul className={style.content}>
         <li>电话：152****2846</li>
         <li>邮箱：756885686@qq.com</li>
       </ul>
