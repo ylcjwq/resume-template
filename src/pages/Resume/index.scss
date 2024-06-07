@@ -3,13 +3,15 @@
   width: 100vw;
   box-sizing: border-box;
   background-color: #27292c;
+  overflow: hidden;
   // color: #fff;
   .header {
     height: 60px;
     width: 820px;
-    padding-top: 16px;
+    margin-top: 16px;
     margin-left: 32px;
     background-color: #fff;
+    border-radius: 10px;
   }
   .content {
     margin-left: 32px;
