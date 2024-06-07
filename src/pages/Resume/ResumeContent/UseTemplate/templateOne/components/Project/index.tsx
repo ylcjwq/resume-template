@@ -14,7 +14,7 @@ function Project() {
         <li className="flex">
           <div className="left">
             <p>
-              <span>2021.03 - 2021.05</span>
+              <span>2023.03 - 2023.05</span>
             </p>
           </div>
           <div className="right">

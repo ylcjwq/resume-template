@@ -12,11 +12,11 @@ function Work() {
         <li className="flex">
           <div className="left">
             <p>2019.07-至今</p>
-            <p>前端工程师</p>
+            <p>前端攻城狮</p>
           </div>
           <div className="right">
-            <p>CVTE</p>
-            <p>就职于CVTE，部门人送广州彭于晏，其他的没啥介绍了</p>
+            <p>xxxx</p>
+            <p>就职于xxxx，部门人送广州彭于晏，其他的没啥介绍了</p>
           </div>
         </li>
       </ul>

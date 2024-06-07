@@ -10,8 +10,8 @@ function Job() {
     <div className="container">
       <p className="title">求职意向 Work</p>
       <ul className="content">
-        <li>职位：前端工程师</li>
-        <li>城市：广州｜成都｜海口</li>
+        <li>职位：前端攻城狮</li>
+        <li>城市：广州｜珠海</li>
       </ul>
     </div>
   );
