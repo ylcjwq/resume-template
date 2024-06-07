@@ -24,7 +24,7 @@ function App() {
   return (
       <>
         <div className={'root'}>
-          <div className={'container'}>
+          <div className={'containerHome'}>
             <img src={Logo} alt={""} />
             <div className={'title'}> {appName} </div>
             <div className={'tips'}> 一个模板简历制作平台，让你的简历更加出众 </div>

@@ -3,7 +3,7 @@
  * @author pengdaokuan
  */
 import './index.scss';
-import AvatarImage from '@assets/avatar.jpg';
+import AvatarImage from '@/assets/react.svg';
 
 function Avatar() {
   return (

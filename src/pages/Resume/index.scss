@@ -1,4 +1,4 @@
-.container {
+.containerBox {
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
     background-color: #fff;
     border-radius: 10px;
   }
-  .content {
+  .contentBox {
     margin-left: 32px;
     width: 820px;
     margin-top: 16px;
