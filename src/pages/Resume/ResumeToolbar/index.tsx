@@ -12,7 +12,13 @@ const ResumeToolbar = () => {
                         {RESUME_TOOLBAR_LIST.map((toolbar: TSResume.SliderItem) => {
                             return (
                                 <div className="box" key={toolbar.key}>
-                                    // ...
+                                    <div className="info">
+                                        <i className="icon" />
+                                        <div className="text">
+                                            <div className="name">{toolbar.name}</div>
+                                            <div className="summary">{toolbar.summary}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             );
                         })}
