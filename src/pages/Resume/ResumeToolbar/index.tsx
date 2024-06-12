@@ -19,7 +19,9 @@ const ResumeToolbar = () => {
       setUnAddToolbarList(_unAddToolbarList);
     }
   }, []);
+
   const height = document.body.clientHeight;
+
   return (
     <div className={style.slider}>
       <ScrollBox maxHeight={height - 180}>
