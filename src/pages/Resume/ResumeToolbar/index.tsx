@@ -11,9 +11,9 @@ const ResumeToolbar = () => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
       const _addToolbarList: TSResume.SliderItem[] = [];
       const _unAddToolbarList: TSResume.SliderItem[] = [];
-      RESUME_TOOLBAR_LIST.forEach((s: TSResume.SliderItem) => {
-        if (s.require) _addToolbarList.push(s);
-        if (!s.require) _unAddToolbarList.push(s);
+      RESUME_TOOLBAR_LIST.forEach((item: TSResume.SliderItem) => {
+        if (item.require) _addToolbarList.push(item);
+        if (!item.require) _unAddToolbarList.push(item);
       });
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
@@ -21,6 +21,27 @@ const ResumeToolbar = () => {
   }, []);
 
   const height = document.body.clientHeight;
+
+  /**
+   * 添加模块
+   * @param moduleToolbar 要添加的模块
+   */
+  const onAddSliderAction = (moduleToolbar: TSResume.SliderItem) => {
+    setAddToolbarList([...addToolbarList, moduleToolbar]);
+    const nextUnAddToolbarList = [...unAddToolbarList];
+    nextUnAddToolbarList.splice(nextUnAddToolbarList.indexOf(moduleToolbar), 1);
+    setUnAddToolbarList(nextUnAddToolbarList);
+  }
+  /**
+   * 删除模块
+   * @param moduleToolbar 要删除的模块
+   */
+  const onDeleteSliderAction = (moduleToolbar: TSResume.SliderItem) => {
+    setUnAddToolbarList([...unAddToolbarList, moduleToolbar]);
+    const nextAddToolbarList = [...addToolbarList];
+    nextAddToolbarList.splice(nextAddToolbarList.indexOf(moduleToolbar), 1);
+    setAddToolbarList(nextAddToolbarList);
+  }
 
   return (
     <div className={style.slider}>
@@ -34,7 +55,7 @@ const ResumeToolbar = () => {
             <div className={style.content}>
               {addToolbarList.map((addSlider: TSResume.SliderItem) => {
                 return (
-                  <div className={style.box} key={addSlider.key}>
+                  <div className={style.box} key={addSlider.key} onClick={() => onDeleteSliderAction(addSlider)}>
                     <div className={style.info}>
                       <i className={style.icon}/>
                       <div className={style.text}>
@@ -57,7 +78,7 @@ const ResumeToolbar = () => {
             <div className={style.content}>
               {unAddToolbarList.map((unAddSlider: TSResume.SliderItem) => {
                 return (
-                  <div className={style.box} key={unAddSlider.key}>
+                  <div className={style.box} key={unAddSlider.key} onClick={() => {onAddSliderAction(unAddSlider)}}>
                     <div className={style.info}>
                       <i className={style.icon}/>
                       <div className={style.text}>
