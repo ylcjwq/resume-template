@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import logger from "redux-logger";
 import globalReducer from "./modules/globalModel.ts";
-import resumeReducer from "@/store/modules/resumeModel.ts";
+import templateReducer from "@/store/modules/templateModel.ts";
 
 const store = configureStore({
   reducer: {
     globalModel: globalReducer,
-    resumeModel: resumeReducer,
+    templateModel: templateReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

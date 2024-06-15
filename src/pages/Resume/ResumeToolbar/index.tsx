@@ -1,9 +1,12 @@
 import {useState, useEffect} from 'react'
+import {useDispatch} from "react-redux";
+import {addTemplate} from '@/store/modules/templateModel.ts'
 import ScrollBox from '@/components/ScrollBox'
 import RESUME_TOOLBAR_LIST from '@/constants/resume.ts';
 import style from './index.module.scss'
 
 const ResumeToolbar = () => {
+  const dispatch = useDispatch();
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
 
@@ -23,6 +26,14 @@ const ResumeToolbar = () => {
   const height = document.body.clientHeight;
 
   /**
+   * 更新已添加模块的key
+   * @param moduleKeys
+   */
+  const changeResumeToolbarKeys = (moduleKeys: string[]) => {
+    dispatch(addTemplate(moduleKeys));
+  }
+
+  /**
    * 添加模块
    * @param moduleToolbar 要添加的模块
    */
@@ -31,6 +42,7 @@ const ResumeToolbar = () => {
     const nextUnAddToolbarList = [...unAddToolbarList];
     nextUnAddToolbarList.splice(nextUnAddToolbarList.indexOf(moduleToolbar), 1);
     setUnAddToolbarList(nextUnAddToolbarList);
+    changeResumeToolbarKeys([...addToolbarList, moduleToolbar].map((s: TSResume.SliderItem) => s.key))
   }
   /**
    * 删除模块
@@ -41,6 +53,7 @@ const ResumeToolbar = () => {
     const nextAddToolbarList = [...addToolbarList];
     nextAddToolbarList.splice(nextAddToolbarList.indexOf(moduleToolbar), 1);
     setAddToolbarList(nextAddToolbarList);
+    changeResumeToolbarKeys(nextAddToolbarList.map((s: TSResume.SliderItem) => s.key))
   }
 
   return (
