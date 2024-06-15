@@ -42,7 +42,7 @@ const ResumeToolbar = () => {
     const nextUnAddToolbarList = [...unAddToolbarList];
     nextUnAddToolbarList.splice(nextUnAddToolbarList.indexOf(moduleToolbar), 1);
     setUnAddToolbarList(nextUnAddToolbarList);
-    changeResumeToolbarKeys([...addToolbarList, moduleToolbar].map((s: TSResume.SliderItem) => s.key))
+    changeResumeToolbarKeys([...addToolbarList, moduleToolbar].map((item: TSResume.SliderItem) => item.key))
   }
   /**
    * 删除模块
@@ -53,7 +53,7 @@ const ResumeToolbar = () => {
     const nextAddToolbarList = [...addToolbarList];
     nextAddToolbarList.splice(nextAddToolbarList.indexOf(moduleToolbar), 1);
     setAddToolbarList(nextAddToolbarList);
-    changeResumeToolbarKeys(nextAddToolbarList.map((s: TSResume.SliderItem) => s.key))
+    changeResumeToolbarKeys(nextAddToolbarList.map((item: TSResume.SliderItem) => item.key))
   }
 
   return (
