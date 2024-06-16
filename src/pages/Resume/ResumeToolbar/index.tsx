@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import {addTemplate} from '@/store/modules/templateModel.ts'
 import ScrollBox from '@/components/ScrollBox'
 import RESUME_TOOLBAR_LIST from '@/constants/resume.ts';
+import MessageDispatch, {MESSAGE_EVENT_NAME_MAPS} from '@/utils/messageDispatch.ts'
 import style from './index.module.scss'
 
 const ResumeToolbar = () => {
@@ -68,8 +69,18 @@ const ResumeToolbar = () => {
             <div className={style.content}>
               {addToolbarList.map((addSlider: TSResume.SliderItem) => {
                 return (
-                  <div className={style.box} key={addSlider.key} onClick={() => onDeleteSliderAction(addSlider)}>
+                  <div className={style.box} key={addSlider.key} onClick={() => MessageDispatch.send(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, {
+                    form_name: addSlider.key,
+                  })}>
                     <div className={style.info}>
+                      {!addSlider.require && (
+                        <div className={style.action}>
+                          <i className={style.delete} onClick={(e: React.MouseEvent) => {
+                            e.stopPropagation && e.stopPropagation();
+                            onDeleteSliderAction(addSlider);
+                          }}/>
+                        </div>
+                      )}
                       <i className={style.icon}/>
                       <div className={style.text}>
                         <div className={style.name}>{addSlider.name}</div>
