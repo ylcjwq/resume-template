@@ -1,4 +1,4 @@
-.vis-mask {
+.visMask {
   position: fixed;
   top: 0;
   right: 0;
@@ -13,21 +13,21 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .vis-confirm-box {
+  .visConfirmBox {
     width: 440px;
     padding: 40px 40px 24px;
     box-sizing: border-box;
     border-radius: 12px;
     background-color: #ffffff;
     z-index: 3;
-    .vis-confirm-content {
-      p.vis-confirm-content-title {
+    .visConfirmContent {
+      p.visConfirmContentTitle {
         font-weight: 700;
         font-size: 18px;
         color: rgba(0, 0, 0, 0.8);
         line-height: 28px;
       }
-      p.vis-confirm-content-desc {
+      p.visConfirmContentDesc {
         font-size: 14px;
         color: rgba(0, 0, 0, 0.6);
         line-height: 22px;
@@ -35,11 +35,11 @@
         max-height: 44px;
       }
     }
-    .vis-confirm-footer {
+    .visConfirmFooter {
       margin-top: 24px;
       text-align: right;
       :global {
-        .vis-confirm-footer-btn {
+        .visConfirmFooterBtn {
           border: 1px solid #ddd;
           border-radius: 24px;
           font-size: 14px;
@@ -52,13 +52,13 @@
             margin-right: 0;
           }
         }
-        .vis-confirm-footer-cancel-btn {
+        .visConfirmFooterCancelBtn {
           color: rgba(0, 0, 0, 0.6);
           &:hover {
             background-color: #f6f8fa;
           }
         }
-        .vis-confirm-footer-submit-btn {
+        .visConfirmFooterSubmitBtn {
           color: #ffffff;
           background-color: #198fff;
           border: none;
@@ -66,7 +66,7 @@
             background-color: #3b9efa;
           }
         }
-        .vis-confirm-footer-delete-btn {
+        .visConfirmFooterDeleteBtn {
           color: #ffffff;
           background-color: #e65c5c;
           border: none;

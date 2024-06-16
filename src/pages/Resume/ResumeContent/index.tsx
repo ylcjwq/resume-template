@@ -5,9 +5,14 @@ import './index.scss'
 import useMount from "@/hooks/useMount.ts";
 import useUnmount from "@/hooks/useUnmount.ts";
 import {useState} from "react";
+import PersonalForm from './UseForm/Personal'
+import { RESUME_TOOLBAR_MAPS } from '@/constants/resume.ts'
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
+    const [formName, setFormName] = useState("");
+    const [showFormModal, setShowFormModal] = useState(false);
+
     useMount(() => {
         document.addEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive);
         window.addEventListener('resize', handleResize)
@@ -28,6 +33,8 @@ const ResumeContent = () => {
     const onReceive = (e: CustomEvent) => {
         MessageDispatch.receive(e, (data: object) => {
             console.log('发布订阅，传参值为: ', data);
+            setShowFormModal(true);
+            setFormName(data.formName)
         });
     };
 
@@ -36,6 +43,11 @@ const ResumeContent = () => {
     return (
         <ScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
             <UseTemplateList.TemplateOne />
+            {showFormModal && (
+              <>
+                  {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm/>}
+              </>
+            )}
         </ScrollBox>
     )
 }

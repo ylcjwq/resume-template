@@ -1,4 +1,4 @@
-
+// 自定义事件类型
 export const MESSAGE_EVENT_NAME_MAPS = {
   OPEN_FORM_MODAL: 'open_form_modal', // 简历模块选择
 };

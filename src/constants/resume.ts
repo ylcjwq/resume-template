@@ -1,3 +1,4 @@
+// 信息栏
 export const RESUME_TOOLBAR_MAPS = {
     personal: 'personal', // 个人信息
     contact: 'contact', // 联系方式

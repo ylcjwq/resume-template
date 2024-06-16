@@ -81,7 +81,7 @@ const ResumeToolbar = () => {
               {addToolbarList.map((addSlider: TSResume.SliderItem) => {
                 return (
                   <div className={style.box} key={addSlider.key} onClick={() => MessageDispatch.send(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, {
-                    form_name: addSlider.key,
+                    formName: addSlider.key,
                   })}>
                     <div className={style.info}>
                       {!addSlider.require && (
