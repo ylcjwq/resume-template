@@ -4,21 +4,21 @@ import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import {State} from "@/type/storeState.ts";
 
-type ContactProps = {
+type EducationProps = {
   onClose: () => void;
 }
 
 /**
- * 联系方式弹窗
- * @param onClose 关闭方法
+ * 教育信息弹窗
+ * @param onClose 关闭事件
  * @constructor
  */
-function Contact({ onClose }: ContactProps) {
-  const contact: TSResume.Contact = useSelector((state: State) => state.resumeModel.contact);
+function Education({ onClose }: EducationProps) {
+  const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
 
   return (
     <Modal.Dialog
-      title="联系方式"
+      title="教育信息"
       showFooter={false}
       config={{
         cancelBtn: {
@@ -30,13 +30,13 @@ function Contact({ onClose }: ContactProps) {
         <div className={style.flex}>
           <div className={style.left}>
             <span className={style.require}>*</span>
-            <span>电 话 ：</span>
+            <span>学 校 ：</span>
           </div>
           <div className={style.right}>
             <Input
               // onChange={(e) => {}}
-              value={contact?.phone || ''}
-              placeholder="请输入电话号码"
+              value={base?.school || ''}
+              placeholder="请输入贵校"
               allowClear={true}
             />
           </div>
@@ -44,45 +44,60 @@ function Contact({ onClose }: ContactProps) {
         <div className={style.flex}>
           <div className={style.left}>
             <span className={style.require}>*</span>
-            <span>邮 箱 ：</span>
+            <span>专 业 ：</span>
           </div>
           <div className={style.right}>
             <Input
               // onChange={(e) => {}}
-              value={contact?.email || ''}
-              placeholder="请输入邮箱"
+              value={base?.major || ''}
+              placeholder="请输入专业"
               allowClear={true}
             />
           </div>
         </div>
         <div className={style.flex}>
           <div className={style.left}>
-            <span className={style.require} style={{opacity: 0}}>
-              *
-            </span>
-            <span>仓 库 ：</span>
+            <span className={style.require}>*</span>
+            <span>学 位 ：</span>
           </div>
           <div className={style.right}>
             <Input
               // onChange={(e) => {}}
-              value={contact?.github || ''}
-              placeholder="Github/Gitee 地址"
+              value={base?.degree || ''}
+              placeholder="学士？硕士？还是博士？"
               allowClear={true}
             />
           </div>
         </div>
         <div className={style.flex}>
           <div className={style.left}>
-            <span className={style.require} style={{opacity: 0}}>
-              *
-            </span>
-            <span>掘 金 ：</span>
+            <span className={style.require}>*</span>
+            <span>学 年 ：</span>
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
-              value={contact?.juejin || ''}
-              placeholder="掘金地址"
+              onChange={e => {
+                const nextTime = {
+                  ...base?.onSchoolTime,
+                  beginTime: e.target.value,
+                };
+              }}
+              value={base?.onSchoolTime?.beginTime || ''}
+              placeholder="入学时间"
+              allowClear={true}
+              style={{width: 300}}
+            />
+            <span className={style.line}>-</span>
+            <Input
+              onChange={e => {
+                const nextTime = {
+                  ...base?.onSchoolTime,
+                  endTime: e.target.value,
+                };
+              }}
+              value={base?.onSchoolTime?.endTime || ''}
+              placeholder="毕业时间"
+              style={{width: 300}}
               allowClear={true}
             />
           </div>
@@ -92,4 +107,4 @@ function Contact({ onClose }: ContactProps) {
   );
 }
 
-export default Contact;
+export default Education;

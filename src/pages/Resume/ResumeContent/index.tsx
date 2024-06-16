@@ -9,6 +9,7 @@ import { RESUME_TOOLBAR_MAPS } from '@/constants/resume.ts'
 import PersonalForm from './UseForm/Personal'
 import CertificateForm from './UseForm/Certificate';
 import ContactForm from './UseForm/Contact';
+import EducationForm from './UseForm/Education';
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
@@ -53,9 +54,10 @@ const ResumeContent = () => {
             <UseTemplateList.TemplateOne />
             {showFormModal && (
               <>
-                  {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
                   {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm onClose={onClose}/>}
+                  {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
                   {formName === RESUME_TOOLBAR_MAPS.contact && <ContactForm onClose={onClose}/>}
+                  {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm onClose={onClose}/>}
               </>
             )}
         </ScrollBox>
