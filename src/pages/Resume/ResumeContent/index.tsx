@@ -38,6 +38,12 @@ const ResumeContent = () => {
         });
     };
 
+    // 关闭弹窗
+    const onClose = () => {
+        setShowFormModal(false);
+        setFormName('');
+    }
+
     const HEADER_ACTION_HEIGHT = 92;
 
     return (
@@ -45,7 +51,7 @@ const ResumeContent = () => {
             <UseTemplateList.TemplateOne />
             {showFormModal && (
               <>
-                  {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm/>}
+                  {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm onClose={onClose}/>}
               </>
             )}
         </ScrollBox>
