@@ -5,8 +5,9 @@ import './index.scss'
 import useMount from "@/hooks/useMount.ts";
 import useUnmount from "@/hooks/useUnmount.ts";
 import {useState} from "react";
-import PersonalForm from './UseForm/Personal'
 import { RESUME_TOOLBAR_MAPS } from '@/constants/resume.ts'
+import PersonalForm from './UseForm/Personal'
+import CertificateForm from './UseForm/Certificate';
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
@@ -51,6 +52,7 @@ const ResumeContent = () => {
             <UseTemplateList.TemplateOne />
             {showFormModal && (
               <>
+                  {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
                   {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm onClose={onClose}/>}
               </>
             )}

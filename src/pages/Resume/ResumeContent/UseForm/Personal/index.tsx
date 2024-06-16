@@ -2,16 +2,17 @@ import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import {useSelector} from 'react-redux';
 import style from './index.module.scss';
-import resumeReducer from "@/store/modules/resumeModel.ts";
+import {State} from "@/type/storeState.ts";
 
 type PersonalProps = {
   onClose: () => void;
 }
 
-interface State {
-  resumeModel: ReturnType<typeof resumeReducer>
-}
-
+/**
+ * 基本信息弹窗
+ * @param onClose 关闭事件
+ * @constructor
+ */
 const Personal = ({onClose}: PersonalProps) => {
   const hobby: string = useSelector((state: State) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
@@ -30,11 +31,11 @@ const Personal = ({onClose}: PersonalProps) => {
         <div className={style.flex}>
           <div className={style.left}>
             <span className={style.require}>*</span>
-            <span>姓 名 :</span>
+            <span>姓 名 ：</span>
           </div>
           <div className={style.right}>
             <Input
-              onChange={e => {}}
+              // onChange={e => {}}
               value={base?.username || ""}
               placeholder={"请输入姓名"}
               allowClear={true}
@@ -44,11 +45,11 @@ const Personal = ({onClose}: PersonalProps) => {
         <div className={style.flex}>
           <div className={style.left}>
             <span className={style.require}>*</span>
-            <span>籍 贯 :</span>
+            <span>籍 贯 ：</span>
           </div>
           <div className={style.right}>
             <Input
-              onChange={e => {}}
+              // onChange={e => {}}
               value={base?.hometown || ""}
               placeholder={"请输入籍贯"}
               allowClear={true}
@@ -58,12 +59,12 @@ const Personal = ({onClose}: PersonalProps) => {
         <div className={style.flex}>
           <div className={style.left}>
             <span className={style.require}>*</span>
-            <span>爱 好 :</span>
+            <span>爱 好 ：</span>
           </div>
           <div className={style.right}>
             <Input
               type="textarea"
-              onChange={e => {}}
+              // onChange={e => {}}
               value={hobby  || ""}
               placeholder={"你有什么特长或爱好呢"}
               allowClear={true}
