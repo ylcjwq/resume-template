@@ -13,7 +13,7 @@ type ContactProps = {
  * @param onClose 关闭方法
  * @constructor
  */
-function Contact({ onClose }: ContactProps) {
+const Contact = ({ onClose }: ContactProps) => {
   const contact: TSResume.Contact = useSelector((state: State) => state.resumeModel.contact);
 
   return (

@@ -13,7 +13,7 @@ type EducationProps = {
  * @param onClose 关闭事件
  * @constructor
  */
-function Education({ onClose }: EducationProps) {
+const Education = ({ onClose }: EducationProps) => {
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
 
   return (
