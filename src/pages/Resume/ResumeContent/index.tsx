@@ -8,6 +8,7 @@ import {useState} from "react";
 import { RESUME_TOOLBAR_MAPS } from '@/constants/resume.ts'
 import PersonalForm from './UseForm/Personal'
 import CertificateForm from './UseForm/Certificate';
+import ContactForm from './UseForm/Contact';
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
@@ -54,6 +55,7 @@ const ResumeContent = () => {
               <>
                   {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
                   {formName === RESUME_TOOLBAR_MAPS.personal && <PersonalForm onClose={onClose}/>}
+                  {formName === RESUME_TOOLBAR_MAPS.contact && <ContactForm onClose={onClose}/>}
               </>
             )}
         </ScrollBox>

@@ -19,7 +19,7 @@ const resumeModel = createSlice({
     contact: {
       phone: '152****2846',
       email: '756885686@qq.com',
-      gitee: 'https://gitee.com/yuan-longcheng',
+      github: 'https://gitee.com/yuan-longcheng',
       juejin: 'https://juejin.cn/user/231316642338253',
     },
     work: {
