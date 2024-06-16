@@ -8,8 +8,7 @@ function MessageDispatch () {
 }
 
 MessageDispatch.prototype.send = (eventName: string, payload: object) => {
-  console.log('发送事件');
-  document.dispatchEvent(new CustomEvent(eventName, { detail: payload }));
+  document.dispatchEvent(new CustomEvent(eventName, { detail: {payload} }));
 }
 
 MessageDispatch.prototype.receive = (e: CustomEvent, Fn: (payload: object) => void) => {

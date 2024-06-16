@@ -6,11 +6,13 @@ import RESUME_TOOLBAR_LIST from '@/constants/resume.ts';
 import MessageDispatch, {MESSAGE_EVENT_NAME_MAPS} from '@/utils/messageDispatch.ts'
 import style from './index.module.scss'
 import useMount from "@/hooks/useMount.ts";
+import useUnmount from "@/hooks/useUnmount.ts";
 
 const ResumeToolbar = () => {
   const dispatch = useDispatch();
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
+  const [height, setHeight] = useState(window.innerHeight);
 
   useMount(() => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
@@ -23,9 +25,17 @@ const ResumeToolbar = () => {
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
     }
+    window.addEventListener('resize', handleResize)
   });
 
-  const height = document.body.clientHeight;
+  useUnmount(() => {
+    window.removeEventListener('resize', handleResize);
+  })
+
+  // 监听窗口大小变化
+  const handleResize = () => {
+    setHeight(window.innerHeight); // 更新height状态
+  };
 
   /**
    * 更新已添加模块的key
