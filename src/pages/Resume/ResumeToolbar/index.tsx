@@ -1,17 +1,18 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import {useDispatch} from "react-redux";
 import {addTemplate} from '@/store/modules/templateModel.ts'
 import ScrollBox from '@/components/ScrollBox'
 import RESUME_TOOLBAR_LIST from '@/constants/resume.ts';
 import MessageDispatch, {MESSAGE_EVENT_NAME_MAPS} from '@/utils/messageDispatch.ts'
 import style from './index.module.scss'
+import useMount from "@/hooks/useMount.ts";
 
 const ResumeToolbar = () => {
   const dispatch = useDispatch();
   const [addToolbarList, setAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
 
-  useEffect(() => {
+  useMount(() => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
       const _addToolbarList: TSResume.SliderItem[] = [];
       const _unAddToolbarList: TSResume.SliderItem[] = [];
@@ -22,7 +23,7 @@ const ResumeToolbar = () => {
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
     }
-  }, []);
+  });
 
   const height = document.body.clientHeight;
 
