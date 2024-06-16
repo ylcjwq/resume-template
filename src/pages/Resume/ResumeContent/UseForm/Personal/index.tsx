@@ -1,15 +1,20 @@
 import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import {useSelector} from 'react-redux';
-import style from './index.module.scss'
+import style from './index.module.scss';
+import resumeReducer from "@/store/modules/resumeModel.ts";
 
 type PersonalProps = {
   onClose: () => void;
 }
 
+interface State {
+  resumeModel: ReturnType<typeof resumeReducer>
+}
+
 const Personal = ({onClose}: PersonalProps) => {
-  const hobby: string = useSelector((state: any) => state.resumeModel.hobby);
-  const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
+  const hobby: string = useSelector((state: State) => state.resumeModel.hobby);
+  const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
 
   return (
     <Modal.Dialog
