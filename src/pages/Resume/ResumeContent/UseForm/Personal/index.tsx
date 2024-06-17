@@ -3,6 +3,7 @@ import Input from '@/components/Input';
 import {useSelector} from 'react-redux';
 import style from './index.module.scss';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from "@/hooks/useUpdateResume";
 
 type PersonalProps = {
   onClose: () => void;
@@ -14,6 +15,7 @@ type PersonalProps = {
  * @constructor
  */
 const Personal = ({onClose}: PersonalProps) => {
+  const updateResume = useUpdateResume()
   const hobby: string = useSelector((state: State) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
 
@@ -35,7 +37,9 @@ const Personal = ({onClose}: PersonalProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={e => {}}
+              onChange={e => {
+                updateResume('base/username', e.target?.value || '');
+              }}
               value={base?.username || ""}
               placeholder={"请输入姓名"}
               allowClear={true}
@@ -49,7 +53,9 @@ const Personal = ({onClose}: PersonalProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={e => {}}
+              onChange={e => {
+                updateResume('base/hometown', e.target?.value || '');
+              }}
               value={base?.hometown || ""}
               placeholder={"请输入籍贯"}
               allowClear={true}
@@ -64,7 +70,9 @@ const Personal = ({onClose}: PersonalProps) => {
           <div className={style.right}>
             <Input
               type="textarea"
-              // onChange={e => {}}
+              onChange={e => {
+                updateResume('hobby', e.target?.value || '');
+              }}
               value={hobby  || ""}
               placeholder={"你有什么特长或爱好呢"}
               allowClear={true}

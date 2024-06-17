@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 const resumeModel = createSlice({
   name: "resumeModel",
@@ -97,9 +97,16 @@ const resumeModel = createSlice({
     ],
   },
   reducers: {
-
+    setBase: (state, action: PayloadAction<any>) => {
+      state.base = action.payload;
+    },
+    setContact: (state, action: PayloadAction<any>) => {
+      state.contact = action.payload;
+    }
   }
 })
+
+export const {setBase} = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;
 
