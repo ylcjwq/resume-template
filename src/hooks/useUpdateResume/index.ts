@@ -4,6 +4,7 @@ import useUpdateWork from "./useUpdateWork.ts";
 import useUpdateEvaluation from "./useUpdateEvaluation.ts";
 import useUpdateHobby from "./useUpdateHobby.ts";
 import useUpdateCertificate from "./useUpdateCertificate.ts";
+import useUpdateSkill from "./useUpdateSkill.ts";
 
 /**
  * 更新简历信息，这是修改 redux 简历信息的唯一方法
@@ -17,6 +18,7 @@ function useUpdateResume() {
   const updateEvaluation = useUpdateEvaluation();
   const updateHobby = useUpdateHobby();
   const updateCertificate = useUpdateCertificate();
+  const updateSkill = useUpdateSkill();
   return <T>(stateKey: string, stateValue: T) => {
     const keys = stateKey.split('/') || [];
     if (keys[0]) {
@@ -26,6 +28,7 @@ function useUpdateResume() {
       if (keys[0] === 'evaluation') updateEvaluation(keys[1], stateValue);  // 个人评价
       if (keys[0] === 'hobby') updateHobby(stateValue);             // 个人爱好
       if (keys[0] === 'certificate') updateCertificate(keys[1], stateValue); // 荣誉证书
+      if (keys[0] === 'skill') updateSkill(keys[1], stateValue);    // 技能清单
     }
   };
 }
