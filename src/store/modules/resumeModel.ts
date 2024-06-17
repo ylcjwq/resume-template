@@ -1,6 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import useUpdateCertificate from "@/hooks/useUpdateResume/useUpdateCertificate.ts";
 import useUpdateSchoolExperience from "@/hooks/useUpdateResume/useUpdateSchoolExperience.ts";
+import useUpdateWorkExperience from "@/hooks/useUpdateResume/useUpdateWorkExperience.ts";
 
 const resumeModel = createSlice({
   name: "resumeModel",
@@ -126,6 +127,9 @@ const resumeModel = createSlice({
     setSchoolExperience: (state, action: PayloadAction<any>) => {
       state.schoolExperience = action.payload;
     },
+    setWorkExperience: (state, action: PayloadAction<any>) => {
+      state.workExperience = action.payload;
+    }
   }
 })
 
@@ -139,6 +143,7 @@ export const {
   setSkill,
   setProjectExperience,
   setSchoolExperience,
+  setWorkExperience,
 } = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;
