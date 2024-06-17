@@ -106,7 +106,10 @@ const resumeModel = createSlice({
   }
 })
 
-export const {setBase} = resumeModel.actions;
+export const {
+  setBase,
+  setContact,
+} = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;
 
