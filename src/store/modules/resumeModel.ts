@@ -105,6 +105,9 @@ const resumeModel = createSlice({
     },
     setWork: (state, action: PayloadAction<any>) => {
       state.work = action.payload;
+    },
+    setEvaluation: (state, action: PayloadAction<any>) => {
+      state.evaluation = action.payload;
     }
   }
 })
@@ -113,6 +116,7 @@ export const {
   setBase,
   setContact,
   setWork,
+  setEvaluation,
 } = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;
