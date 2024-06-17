@@ -39,7 +39,7 @@ const ResumeToolbar = () => {
 
   /**
    * 更新已添加模块的key
-   * @param moduleKeys
+   * @param moduleKeys 添加的模块的key
    */
   const changeResumeToolbarKeys = (moduleKeys: string[]) => {
     dispatch(addTemplate(moduleKeys));
