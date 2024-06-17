@@ -118,7 +118,10 @@ const resumeModel = createSlice({
     },
     setSkill: (state, action: PayloadAction<any>) => {
       state.skill = action.payload;
-    }
+    },
+    setProjectExperience: (state, action: PayloadAction<any>) => {
+      state.projectExperience = action.payload;
+    },
   }
 })
 
@@ -130,6 +133,7 @@ export const {
   setHobby,
   setCertificate,
   setSkill,
+  setProjectExperience,
 } = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;

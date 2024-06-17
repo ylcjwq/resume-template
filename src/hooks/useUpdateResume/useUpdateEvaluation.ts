@@ -1,4 +1,4 @@
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 // import {State} from "@/type/storeState.ts";
 import {setEvaluation} from "@/store/modules/resumeModel.ts";
 
