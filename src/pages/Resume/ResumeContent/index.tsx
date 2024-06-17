@@ -12,6 +12,7 @@ import ContactForm from './UseForm/Contact';
 import EducationForm from './UseForm/Education';
 import SkillForm from './UseForm/Skill';
 import WorkForm from './UseForm/Work';
+import Evaluation from "./UseForm/Evaluation";
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
@@ -62,6 +63,7 @@ const ResumeContent = () => {
                   {formName === RESUME_TOOLBAR_MAPS.education && <EducationForm onClose={onClose}/>}
                   {formName === RESUME_TOOLBAR_MAPS.skill && <SkillForm onClose={onClose}/>}
                   {formName === RESUME_TOOLBAR_MAPS.workPrefer && <WorkForm onClose={onClose}/>}
+                  {formName === RESUME_TOOLBAR_MAPS.evaluation && <Evaluation onClose={onClose}/>}
               </>
             )}
         </ScrollBox>
