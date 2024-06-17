@@ -1,4 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import useUpdateCertificate from "@/hooks/useUpdateResume/useUpdateCertificate.ts";
 
 const resumeModel = createSlice({
   name: "resumeModel",
@@ -108,7 +109,13 @@ const resumeModel = createSlice({
     },
     setEvaluation: (state, action: PayloadAction<any>) => {
       state.evaluation = action.payload;
-    }
+    },
+    setHobby: (state, action: PayloadAction<any>) => {
+      state.hobby = action.payload;
+    },
+    setCertificate: (state, action: PayloadAction<any>) => {
+      state.certificate = action.payload;
+    },
   }
 })
 
@@ -117,6 +124,8 @@ export const {
   setContact,
   setWork,
   setEvaluation,
+  setHobby,
+  setCertificate,
 } = resumeModel.actions;
 
 const resumeReducer = resumeModel.reducer;
