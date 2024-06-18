@@ -32,7 +32,7 @@ const List = ({ index, experienceList, onDelete, onChange }: ListProps) => {
         experienceList.map((item: AdapterExperienceType, i: number) => {
           return (
             <div
-              className={`${style.experienceitem} ${i === index ? style.isSelect : ''} `}
+              className={`${style.experienceItem} ${i === index ? style.isSelect : ''} `}
               key={i}
               onClick={() => {
                 onChange(i);
