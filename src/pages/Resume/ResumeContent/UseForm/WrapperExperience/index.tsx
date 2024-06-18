@@ -7,13 +7,13 @@ import {onAddExperience, onDeleteExperience} from './utils';
 import {AdapterExperienceType} from './adapter';
 import Modal from '@/components/Modal';
 
-interface IProps {
+interface WrapperProps {
   dataList: any[];
   updateDataList: (newDataList: any[]) => void;
   children: React.ReactNode;
 }
 
-const WrapperExperience = ({ children, dataList, updateDataList }: IProps) => {
+const WrapperExperience = ({ children, dataList, updateDataList }: WrapperProps) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [currentItem, setCurrentItem] = useState<AdapterExperienceType>({});
   const [experienceList, setExperienceList] = useState<AdapterExperienceType[]>([]);

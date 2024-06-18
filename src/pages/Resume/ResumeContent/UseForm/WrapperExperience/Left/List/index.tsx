@@ -4,7 +4,7 @@ import { formatToString } from '@/utils/time.ts';
 import DeleteIcon from '@/assets/icon/delete.png';
 import { AdapterExperienceType } from '../../adapter';
 
-export interface IListProps {
+export interface ListProps {
   /**
    * @description 当前操作索引下标
    */
@@ -23,7 +23,7 @@ export interface IListProps {
   onChange: (index: number) => void;
 }
 
-const List = ({ index, experienceList, onDelete, onChange }: IListProps) => {
+const List = ({ index, experienceList, onDelete, onChange }: ListProps) => {
 
   return (
     <div className={style.experienceList}>
