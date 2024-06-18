@@ -40,39 +40,38 @@ const AdapterExperience = {
    */
   project(list: TSResume.ProjectExperience[]): AdapterExperienceType[] {
     if (!list || list.length === 0) return [];
-    const experienceList: AdapterExperienceType[] = list.map((item: TSResume.ProjectExperience) => {
+    return list.map((item: TSResume.ProjectExperience) => {
       return {
         ...item,
         title: item.projectName,
       };
     });
-    return experienceList;
   },
+
   /**
    * @description 工作经验
    */
   work(list: TSResume.WorkExperience[]): AdapterExperienceType[] {
     if (!list || list.length === 0) return [];
-    const experienceList: AdapterExperienceType[] = list.map((item: TSResume.WorkExperience) => {
+    return list.map((item: TSResume.WorkExperience) => {
       return {
         ...item,
         title: item.department,
       };
     });
-    return experienceList;
   },
+
   /**
    * @description 在校经验
    */
   school(list: TSResume.SchoolExperience[]): AdapterExperienceType[] {
     if (!list || list.length === 0) return [];
-    const experienceList: AdapterExperienceType[] = list.map((item: TSResume.SchoolExperience) => {
+    return list.map((item: TSResume.SchoolExperience) => {
       return {
         ...item,
         title: item.department,
       };
     });
-    return experienceList;
   },
 };
 

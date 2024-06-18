@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 import {setSchoolExperience} from "@/store/modules/resumeModel.ts";
-import type {AdapterExperienceType} from '@/type/adapter.ts'
+import {AdapterExperienceType} from '@/pages/Resume/ResumeContent/UseForm/WrapperExperience/adapter.ts'
 
 /**
  * 修改在校经历（School）

@@ -1,6 +1,6 @@
 import {useDispatch} from 'react-redux';
 import {setWorkExperience} from "@/store/modules/resumeModel.ts";
-import type {AdapterExperienceType} from '@/type/adapter.ts'
+import {AdapterExperienceType} from '@/pages/Resume/ResumeContent/UseForm/WrapperExperience/adapter.ts'
 
 /**
  * 修改校园实习（School）
