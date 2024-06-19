@@ -15,13 +15,14 @@ import Project from './components/Project';
 import Work from './components/Work';
 import { useSelector } from 'react-redux';
 import { RESUME_TOOLBAR_MAPS } from '@/constants/resume.ts';
+import {State, TemplateState} from "@/type/storeState.ts";
 
 const TemplateOne = () => {
 
   // 👇 获取简历信息数据
-  // const base: TSResume.Base = useSelector((state: any) => state.resumeModel.base);
+  const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
   // 👇 获取工具条模块 keys
-  const resumeToolbarKeys: string[] = useSelector(state => state.templateModel.resumeToolbarKeys);
+  const resumeToolbarKeys: string[] = useSelector((state: TemplateState) => state.templateModel.resumeToolbarKeys);
 
   return (
     <div className="a4-box">
@@ -41,7 +42,7 @@ const TemplateOne = () => {
         </div>
         {/* 内容 */}
         <div className="center">
-          {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.evaluation) && <Synopsis />}
+          {(resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.evaluation) || base?.username) && <Synopsis />}
           <div className="listData">
             {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.skill) && <Skill />}
             {resumeToolbarKeys.includes(RESUME_TOOLBAR_MAPS.schoolExperience) && <Post />}
