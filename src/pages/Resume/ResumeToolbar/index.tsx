@@ -14,6 +14,14 @@ const ResumeToolbar = () => {
   const [unAddToolbarList, setUnAddToolbarList] = useState<TSResume.SliderItem[]>([]);
   const [height, setHeight] = useState(window.innerHeight);
 
+  /**
+   * 更新已添加模块的key
+   * @param moduleKeys 添加的模块的key
+   */
+  const changeResumeToolbarKeys = (moduleKeys: string[]) => {
+    dispatch(addTemplate(moduleKeys));
+  }
+
   useMount(() => {
     if (RESUME_TOOLBAR_LIST.length > 0) {
       const _addToolbarList: TSResume.SliderItem[] = [];
@@ -24,6 +32,7 @@ const ResumeToolbar = () => {
       });
       setAddToolbarList(_addToolbarList);
       setUnAddToolbarList(_unAddToolbarList);
+      changeResumeToolbarKeys(_addToolbarList.map(item => item.key))
     }
     window.addEventListener('resize', handleResize)
   });
@@ -36,14 +45,6 @@ const ResumeToolbar = () => {
   const handleResize = () => {
     setHeight(window.innerHeight); // 更新height状态
   };
-
-  /**
-   * 更新已添加模块的key
-   * @param moduleKeys 添加的模块的key
-   */
-  const changeResumeToolbarKeys = (moduleKeys: string[]) => {
-    dispatch(addTemplate(moduleKeys));
-  }
 
   /**
    * 添加模块
