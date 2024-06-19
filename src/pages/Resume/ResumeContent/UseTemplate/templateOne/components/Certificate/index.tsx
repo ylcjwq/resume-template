@@ -1,19 +1,25 @@
-/**
- * @desc 荣誉奖励
- * @author pengdaokuan
- */
-
 import style from '@/pages/Resume/ResumeContent/UseTemplate/styles/template-one.module.scss';
+import { useSelector } from 'react-redux';
+import {State} from "@/type/storeState.ts";
 
-function Certificate() {
+/**
+ * 荣誉奖励
+ * @constructor
+ */
+const Certificate = () => {
+
+  const certificate: string = useSelector((state: State) => state.resumeModel.certificate);
+  const certificateList: string[] = useSelector((state: State) => state.resumeModel.certificateList);
+
   return (
     <div className={style.container}>
       <p className={style.title}>荣誉奖励 Certificate</p>
       <ul className={style.content}>
-        <li>全国英语十级证书</li>
-        <li>全国计算机专家级证书</li>
-        <li>广东第一帅哥（自封）</li>
-        <li>广州第一届拼搏杯大赛参与奖</li>
+        {certificate &&
+          certificateList.length > 0 &&
+          certificateList?.map((value: string, index: number) => {
+            return <li key={index}>{value}</li>;
+          })}
       </ul>
     </div>
   );

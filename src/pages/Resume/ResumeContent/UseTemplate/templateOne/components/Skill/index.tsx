@@ -1,25 +1,29 @@
-/**
- * @desc 技能
- * @author pengdaokuan
- */
-import './index.scss';
+import style from './index.module.scss';
+import { useSelector } from 'react-redux';
+import {State} from "@/type/storeState.ts";
 
-function Skill() {
+/**
+ * 专业技能
+ * @constructor
+ */
+const Skill = () => {
+
+  const skill: string = useSelector((state: State) => state.resumeModel.skill);
+  const skillList: string[] = useSelector((state: State) => state.resumeModel.skillList);
+
   return (
-    <div className="content">
-      <p className="label">技能证书 Skill</p>
-        <ul className="skill">
-            <li className="item">熟悉 Vue.js，了解数据双向绑定原理、阅读过 NextTick 源码</li>
-            <li className="item">熟悉 React，了解并使用 Hooks 特性，阅读过 ahooks 源码。</li>
-            <li className="item">阅读过 Antd 部分优秀组件源码，并参考借鉴，开发组内 UI 组件库</li>
-            <li className="item">了解 Vscode，开发组内项目辅助工具 vscode-change 插件</li>
-            <li className="item">了解 Webpack 编译原理，了解 babel 转码原理</li>
-            <li className="item">了解 Electron，了解 Node.js 以及 Git 团队协作开发工具</li>
-            <li className="item">了解设计模式，对于特定场景，能采用合适的设计模式进行解决</li>
-            <li className="item">了解 MYSQL，了解数据库优化常用方法</li>
-            <li className="item">了解基于微信公众号应用开发，采用 uniApp 开发微信小程序，具备良好的网络基础知识</li>
-            <li className="item">了解基础数据结构与算法</li>
-            <li className="item">了解Python</li>
+    <div className={style.content}>
+      <p className={style.label}>技能证书 Skill</p>
+        <ul className={style.skill}>
+          {skill &&
+            skillList?.length > 0 &&
+            skillList?.map((skill: string, index: number) => {
+              return (
+                <li className={style.item} key={index}>
+                  {skill}
+                </li>
+              );
+            })}
         </ul>
     </div>
   );

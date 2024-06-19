@@ -1,19 +1,28 @@
-/**
- * @desc 基本信息
- * @author pengdaokuan
- */
 import style from '@/pages/Resume/ResumeContent/UseTemplate/styles/template-one.module.scss';
+import { useSelector } from 'react-redux';
+import {State} from "@/type/storeState.ts";
 
-function BaseInfo() {
+/**
+ * 基本信息
+ * @constructor
+ */
+const BaseInfo = () => {
+
+  const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
+
   return (
     <div className={style.container}>
       <p className={style.title}>基本信息 Basic</p>
       <ul className={style.content}>
-        <li>院校：亚洲皇家学府</li>
-        <li>专业：计算机科学与技术</li>
-        <li>学历：本科</li>
-        <li>学年：2019.09 - 2023.06</li>
-        <li>籍贯：广东·珠海</li>
+        {base?.school && <li>院校：{base?.school}</li>}
+        {base?.major && <li>专业：{base?.major}</li>}
+        {base?.degree && <li>学历：{base?.degree}</li>}
+        {base?.onSchoolTime && base?.onSchoolTime?.beginTime && base?.onSchoolTime?.endTime && (
+          <li>
+            学年：{base?.onSchoolTime?.beginTime} - {base?.onSchoolTime?.endTime}
+          </li>
+        )}
+        {base?.hometown && <li>籍贯：{base?.hometown}</li>}
       </ul>
     </div>
   );

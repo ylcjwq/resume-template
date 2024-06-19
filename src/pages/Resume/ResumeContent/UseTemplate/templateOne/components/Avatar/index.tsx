@@ -1,7 +1,3 @@
-/**
- * @desc 头像
- * @author pengdaokuan
- */
 import style from './index.module.scss';
 import AvatarImage from '@/assets/react.svg';
 import { useSelector } from 'react-redux';
@@ -11,6 +7,10 @@ import ImageUpload from '@/components/Upload/ImageUpload';
 import useUpdateResume from '@/hooks/useUpdateResume';
 import {State} from "@/type/storeState.ts";
 
+/**
+ * 头像
+ * @constructor
+ */
 const Avatar = () => {
 
   const updateResume = useUpdateResume();

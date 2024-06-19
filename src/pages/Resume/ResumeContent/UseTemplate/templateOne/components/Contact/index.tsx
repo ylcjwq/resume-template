@@ -1,16 +1,21 @@
-/**
- * @desc 联系方式
- * @author pengdaokuan
- */
 import style from '@/pages/Resume/ResumeContent/UseTemplate/styles/template-one.module.scss';
+import { useSelector } from 'react-redux';
+import {State} from "@/type/storeState.ts";
 
-function Contact() {
+/**
+ * 联系方式
+ * @constructor
+ */
+const Contact = () => {
+
+  const contact: TSResume.Contact = useSelector((state: State) => state.resumeModel.contact);
+
   return (
     <div className={style.container}>
       <p className={style.title}>联系方式 Contact</p>
       <ul className={style.content}>
-        <li>电话：152****2846</li>
-        <li>邮箱：756885686@qq.com</li>
+        {contact?.phone && <li>电话：{contact?.phone}</li>}
+        {contact?.email && <li>邮箱：{contact?.email}</li>}
       </ul>
     </div>
   );

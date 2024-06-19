@@ -1,24 +1,36 @@
-/**
- * @desc 工作经历
- * @author pengdaokuan
- */
-import './index.scss';
+import style from './index.module.scss';
+import { useSelector } from 'react-redux';
+import {State} from "@/type/storeState.ts";
 
-function Work() {
+/**
+ * 工作经历
+ * @constructor
+ */
+const Work = () => {
+
+  const workExperience: TSResume.WorkExperience[] = useSelector((state: State) => state.resumeModel.workExperience);
+
   return (
-    <div className="content">
-      <p className="label">工作经历 Post</p>
-      <ul className="list">
-        <li className="flex">
-          <div className="left">
-            <p>2019.07-至今</p>
-            <p>前端攻城狮</p>
-          </div>
-          <div className="right">
-            <p>xxxx</p>
-            <p>就职于xxxx，部门人送广州彭于晏，其他的没啥介绍了</p>
-          </div>
-        </li>
+    <div className={style.content}>
+      <p className={style.label}>工作经历 Post</p>
+      <ul className={style.list}>
+        {!!workExperience?.length &&
+          workExperience?.map((experience: TSResume.WorkExperience, index: number) => {
+            return (
+              <li className={style.flex} key={index}>
+                <div className={style.left}>
+                  <p>
+                    {experience?.beginTime}-{experience?.endTime}
+                  </p>
+                  <p>{experience?.post}</p>
+                </div>
+                <div className={style.right}>
+                  <p>{experience?.department}</p>
+                  <p>{experience?.content}</p>
+                </div>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
