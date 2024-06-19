@@ -11,7 +11,6 @@ const ResumeAction = () => {
 
   // 导出PDF
   const onExport = () => {
-    console.log('导出pdf');
     toPrintPdf(`${base?.username}简历`);
   };
 
