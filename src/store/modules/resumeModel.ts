@@ -1,7 +1,4 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import useUpdateCertificate from "@/hooks/useUpdateResume/useUpdateCertificate.ts";
-import useUpdateSchoolExperience from "@/hooks/useUpdateResume/useUpdateSchoolExperience.ts";
-import useUpdateWorkExperience from "@/hooks/useUpdateResume/useUpdateWorkExperience.ts";
 
 const resumeModel = createSlice({
   name: "resumeModel",
