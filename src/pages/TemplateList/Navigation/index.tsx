@@ -1,5 +1,5 @@
 import style from './index.module.scss'
-import UseIcon from '@assets/icon/use.png';
+import UseIcon from '@/assets/icon/use.png';
 import TemplateCoverOne from '@/assets/template/template1.png';
 import TemplateCoverTwo from '@/assets/template/template2.png';
 import ScrollBox from '@/components/ScrollBox';
