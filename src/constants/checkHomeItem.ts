@@ -12,6 +12,11 @@ const CHECK_HOME_ITEM: HomeCheck[] = [
     text: '简历',
   },
   {
+    url: '/templateList',
+    key: 'templateList',
+    text: '模板',
+  },
+  {
     url: 'https://gitee.com/yuan-longcheng/resume-template',
     key: 'code',
     text: '源码',

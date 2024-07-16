@@ -1,6 +1,7 @@
 import { createHashRouter } from "react-router-dom";
 import Resume from '../pages/Resume'
 import App from '../App.tsx'
+import TemplateList from "@/pages/TemplateList";
 
 const router = createHashRouter([
     {
@@ -10,6 +11,10 @@ const router = createHashRouter([
     {
         path: "/resume",
         element: <Resume />,
+    },
+    {
+        path: "/templateList",
+        element: <TemplateList />,
     },
 ]);
 
