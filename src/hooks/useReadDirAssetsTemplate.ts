@@ -1,6 +1,6 @@
 import getAppPath from '@/utils/appPath';
 import { useDispatch } from 'react-redux';
-import {createUID, removeSameObject} from '@/utils';
+import {createUID} from '@/utils';
 import {setTemplateList, setSelectTemplate} from '@/store/modules/templateModel.ts'
 
 const useReadDirAssetsTemplate = () => {
@@ -28,9 +28,8 @@ const useReadDirAssetsTemplate = () => {
             }
             processedFiles++;
             if (processedFiles === files.length * 2) {
-              const list = removeSameObject(templateList,'templateName')
-              dispatch(setTemplateList(list));
-              dispatch(setSelectTemplate(list[0]));
+              dispatch(setTemplateList(templateList));
+              dispatch(setSelectTemplate(templateList[0]));
             }
           };
 
