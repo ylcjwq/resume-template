@@ -22,7 +22,15 @@ contextBridge.exposeInMainWorld('electron', {
     sendSync(...args: Parameters<typeof ipcRenderer.sendSync>) {
       const [channel, ...omit] = args
       return ipcRenderer.sendSync(channel, ...omit)
-    }
+    },
+    once(...args: Parameters<typeof ipcRenderer.once>) {
+      const [channel, listener] = args;
+      return ipcRenderer.once(channel, (event, ...args) => listener(event, ...args));
+    },
+    removeListener(...args: Parameters<typeof ipcRenderer.removeListener>) {
+      const [channel, listener] = args;
+      return ipcRenderer.removeListener(channel, listener);
+    },
   },
   // You can expose other APTs you need here.
   // ...

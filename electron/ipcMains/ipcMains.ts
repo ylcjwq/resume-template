@@ -8,9 +8,9 @@ const ipcFn = (app: Electron.App) => {
   })
 
   // 文件读取操作
-  ipcMain.on('fileRead', async (event, filePath) => {
+  ipcMain.on('fileRead', async (event, filePath, encoding) => {
     try {
-      const data = await fileAction.read(filePath)
+      const data = await fileAction.read(filePath, encoding)
       event.reply('fileReadReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
@@ -22,7 +22,7 @@ const ipcFn = (app: Electron.App) => {
   ipcMain.on('fileReadDir', async (event, filePath) => {
     try {
       const data = await fileAction.readDir(filePath);
-      event.reply('fileReadReply', data);
+      event.reply('fileReadDirReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
       event.returnValue = (error as Error).message;
