@@ -22,6 +22,9 @@ const fileAction = {
     canRead: (path: string) => {
         return fsPromiseAPIs.access(path, fs.constants.R_OK);
     },
+    readDir: (path: string): Promise<string[]> => {
+        return fsPromiseAPIs.readdir(path);
+    },
 };
 
 export default fileAction;
