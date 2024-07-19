@@ -39,17 +39,3 @@
     }
   }
 }
-
-// <1272px尺寸适配，但是因为滚动条原因，导致会出现小屏时不出现 rect-menu 不显示情况
-@media screen and (max-width: 1200px) {
-  :global {
-    .parentBox {
-      .leftBox {
-        transition: left 0.5s;
-      }
-      .rectMenu {
-        display: block;
-      }
-    }
-  }
-}
