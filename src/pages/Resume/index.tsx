@@ -6,7 +6,7 @@ import './index.scss'
 
 const Resume = () => {
     getAppPath().then(appPath => {
-        window.electron.ipcRenderer.send('fileRead', `${appPath}/src/App.tsx`)
+      window.electron.ipcRenderer.send('fileRead', `${appPath}/src/App.tsx`);
     })
     window.electron.ipcRenderer.on('fileReadReply', (_, data) => {
         data

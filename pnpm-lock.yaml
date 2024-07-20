@@ -45,6 +45,9 @@ importers:
         specifier: ^14.2.1
         version: 14.2.1(node-sass@8.0.0)(sass@1.77.4)
     devDependencies:
+      '@types/lodash':
+        specifier: ^4.17.7
+        version: 4.17.7
       '@types/react':
         specifier: ^18.2.64
         version: 18.3.3
@@ -75,6 +78,9 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.5
         version: 0.4.7(eslint@8.57.0)
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       typescript:
         specifier: ^5.2.2
         version: 5.4.5
@@ -612,6 +618,9 @@ packages:
 
   '@types/keyv@3.1.4':
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
+
+  '@types/lodash@4.17.7':
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
 
   '@types/minimist@1.2.5':
     resolution: {integrity: sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==}
@@ -3148,6 +3157,8 @@ snapshots:
   '@types/keyv@3.1.4':
     dependencies:
       '@types/node': 20.14.0
+
+  '@types/lodash@4.17.7': {}
 
   '@types/minimist@1.2.5': {}
 
