@@ -4,11 +4,14 @@ import App from '../App.tsx'
 import TemplateList from "@/pages/TemplateList";
 import {useEffect} from "react";
 import useReadDirAssetsTemplate from '@/hooks/useReadDirAssetsTemplate';
+import useCurrentTheme from "@/hooks/useCurrentTheme";
 
 const Home = () => {
     const readDirAssetsTemplate = useReadDirAssetsTemplate();
+    const initThemeConfig = useCurrentTheme.useInitThemeConfig();
 
     useEffect(() => {
+        initThemeConfig();
         readDirAssetsTemplate();
     }, []);
 

@@ -10,7 +10,7 @@ import useReadAppConfigThemeFile from "@/hooks/useCurrentTheme/useReadAppConfigT
 const useGetCurrentTheme = () => {
   const changeTheme = useChangeCurrentTheme();
   const currentTheme = useSelector((state: ThemeState) => state.themeModel.currentTheme);
-  return [currentTheme, changeTheme];
+  return [currentTheme, changeTheme] as [TSTheme.Item, (theme: TSTheme.Item) => void];
 }
 
 /**

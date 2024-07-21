@@ -1,25 +1,24 @@
-import React from "react";
 import style from './index.module.scss'
+import {useSelector} from 'react-redux'
+import {ThemeState} from "@/type/storeState.ts";
+import useCurrentTheme from "@/hooks/useCurrentTheme";
 
-interface IProps {
-  themeList: TSTheme.Item[];
-  currentTheme: TSTheme.Item;
-  onChangeTheme: (theme: TSTheme.Item) => void;
-}
-
-const Theme: React.FC<IProps> = ({ themeList= [], currentTheme, onChangeTheme }) => {
+const Theme = () => {
+  const themeList = useSelector((state: ThemeState) => state.themeModel.themeList);
+  const [currentTheme, changeTheme] = useCurrentTheme.useGetCurrentTheme();
+  console.log(themeList)
 
   return (
     <div className={style.box}>
       {themeList.length > 0 &&
-      themeList.map((item: TSTheme.Item, index: number) => {
+      [...themeList].map((item: TSTheme.Item, index: number) => {
         return (
           <span
             key={index}
             style={{backgroundColor: item.backgroundColor}}
             className={`${currentTheme.id === item.id ? style.active : ''}`}
             onClick={() => {
-              onChangeTheme && onChangeTheme(item);
+              changeTheme && changeTheme(item);
             }}
           />
         )
