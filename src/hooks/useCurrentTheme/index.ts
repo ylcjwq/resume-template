@@ -20,7 +20,7 @@ const useInitThemeConfig = () => {
   const selectTheme = useSelectTheme();
   const readAppConfigThemeFile = useReadAppConfigThemeFile();
   return () => {
-    readAppConfigThemeFile().then((value: { [key: string]: any }) => {
+    readAppConfigThemeFile().then((value: { [key: string]: string }) => {
       selectTheme(value);
     });
   };
