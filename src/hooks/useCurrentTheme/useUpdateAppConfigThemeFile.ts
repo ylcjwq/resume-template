@@ -2,7 +2,7 @@ import getAppPath from "@/utils/appPath.ts";
 import useReadAppConfigThemeFile from "@/hooks/useCurrentTheme/useReadAppConfigThemeFile.ts";
 
 /**
- * @description 更新配置表中的用户设置信息
+ * 更新配置表中的用户设置信息
  * @param {string} updateKey 键
  * @param {any} updateValues 值
  * @param {function} callback 回调函数

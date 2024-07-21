@@ -2,11 +2,15 @@ import getAppPath from '@/utils/appPath';
 import { useDispatch } from 'react-redux';
 import {createUID} from '@/utils';
 import {setTemplateList, setSelectTemplate} from '@/store/modules/templateModel.ts'
+import IpcRendererEvent = Electron.IpcRendererEvent;
 
+/**
+ * 初始化简历模板图片
+ */
 const useReadDirAssetsTemplate = () => {
   const dispatch = useDispatch();
   const templateList: TSTemplate.Item[] = [];
-  let listener: (event: any, base64URL: string) => void;
+  let listener: (event: IpcRendererEvent, base64URL: string) => void;
 
   return () => {
     getAppPath().then((appPath: string) => {

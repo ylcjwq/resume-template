@@ -5,7 +5,7 @@ import useSelectTheme from "@/hooks/useCurrentTheme/useSelectTheme.ts";
 import useReadAppConfigThemeFile from "@/hooks/useCurrentTheme/useReadAppConfigThemeFile.ts";
 
 /**
- * @description 获取当前主题与修改组件方法
+ * 获取当前主题与修改组件方法
  */
 const useGetCurrentTheme = () => {
   const changeTheme = useChangeCurrentTheme();
@@ -14,7 +14,7 @@ const useGetCurrentTheme = () => {
 }
 
 /**
- * @description 初始化读取主题配置文件
+ * 初始化读取主题配置文件
  */
 const useInitThemeConfig = () => {
   const selectTheme = useSelectTheme();

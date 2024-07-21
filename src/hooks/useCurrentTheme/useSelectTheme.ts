@@ -3,7 +3,7 @@ import _ from "lodash";
 import {setCurrentTheme, setThemeList} from "@/store/modules/themeModel.ts";
 
 /**
- * @description 对比上一轮的选中的主题皮肤
+ * 对比上一轮的选中的主题皮肤
  */
 function useSelectTheme() {
   const dispatch = useDispatch();
