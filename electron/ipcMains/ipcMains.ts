@@ -41,6 +41,17 @@ const ipcFn = (app: Electron.App) => {
     }
   })
 
+  // 文件读取操作
+  ipcMain.on('fileWrite', async (event, filePath, content, encoding) => {
+    try {
+      const data = await fileAction.write(filePath, content, encoding)
+      event.reply('fileWriteReply', data);
+    } catch (error) {
+      // 如果发生错误，返回错误信息
+      event.returnValue = (error as Error).message;
+    }
+  })
+
   // 获取项目的绝对路径
   ipcMain.on('getPath', async (event) => {
     try {
