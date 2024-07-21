@@ -17,7 +17,6 @@ const useReadDirAssetsTemplate = () => {
         if (files.length > 0) {
           let processedFiles = 0;
           listener = (_, base64URL) => {
-            console.log(base64URL);
             const num = (processedFiles + 1) % files.length
             if(num === 0) {
               templateList.push({
