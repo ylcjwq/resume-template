@@ -38,8 +38,8 @@ const useReadDirAssetsTemplate = () => {
 
           for (const fileName of files) {
             // 图片转为base64
-            window.electron.ipcRenderer.send('fileRead', `${appPath}/src/assets/template/${fileName}`, 'base64');
-            window.electron.ipcRenderer.on('fileReadReply',  listener);
+            window.electron.ipcRenderer.send('fileReadImg', `${appPath}/src/assets/template/${fileName}`, 'base64');
+            window.electron.ipcRenderer.on('fileReadImgReply',  listener);
           }
         }
       });
