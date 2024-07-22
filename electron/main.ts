@@ -51,17 +51,6 @@ app.on('activate', () => {
   }
 })
 
-// app.once("ready", async () => {
-//   //给electron添加react调试工具
-//   let extensionPath =
-//       "C:\\Users\\ylc\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\fmkadmapgofadopljbjfkapdkoienihi\\5.2.0_0";
-//   try {
-//     await session.defaultSession.loadExtension(extensionPath);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
 app.whenReady().then(createWindow)
 
 ipcFn(app);
