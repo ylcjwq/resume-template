@@ -7,19 +7,27 @@ import {setCurrentTheme, setThemeList} from "@/store/modules/themeModel.ts";
  */
 function useSelectTheme() {
   const dispatch = useDispatch();
-  return (themeConfigValues: any) => {
-    const prevTheme: string = themeConfigValues?.currentTheme || '';
-    const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
 
+  return (themeConfigValues: any) => {
+    const prevTheme: string = themeConfigValues?.currentTheme.id || '';
+    const initTheme = { id: 'dark', fontColor: '#ffffff', backgroundColor: '#27292c' };
     let nextTheme: TSTheme.Item;
+    console.log(prevTheme)
     if (themeConfigValues?.themeList.length > 0) {
-      if (prevTheme) nextTheme = _.find(themeConfigValues?.themeList, { id: prevTheme }) || initTheme;
-      else nextTheme = themeConfigValues?.themeList[0];
+      if (prevTheme) {
+
+        nextTheme = _.find(themeConfigValues?.themeList, { id: prevTheme }) || initTheme;
+      } else {
+        nextTheme = themeConfigValues?.themeList[0];
+      }
     } else {
       nextTheme = initTheme;
     }
+
+    console.log(nextTheme)
     dispatch(setThemeList(themeConfigValues?.themeList));
     dispatch(setCurrentTheme(nextTheme));
+
   };
 }
 

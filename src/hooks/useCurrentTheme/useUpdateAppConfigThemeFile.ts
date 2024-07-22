@@ -11,14 +11,16 @@ const useUpdateAppConfigThemeFile = () => {
   const readAppConfigThemeFile = useReadAppConfigThemeFile();
   return (updateKey: string, updateValues: object, callback?: () => void) => {
     getAppPath().then((appPath: string) => {
-      const jsonPath = appPath+'\\appConfig\\theme.config.json';
+      const jsonPath = appPath+'\\theme.config.json';
       readAppConfigThemeFile().then((values: { [key: string]: string }) => {
+        console.log(values)
         if (values && !!Object.keys(values).length) {
           const nextConfigContent = {
             ...values,
             [`${updateKey}`]: updateValues,
           };
-          window.electron.ipcRenderer.send('fileWrite', jsonPath, nextConfigContent, 'utf-8');
+          console.log(nextConfigContent)
+          window.electron.ipcRenderer.send('fileWrite', jsonPath, JSON.stringify(nextConfigContent), 'utf-8');
           window.electron.ipcRenderer.on('fileWriteReply', (_, data: string) => {
             console.log(data);
             callback && callback();

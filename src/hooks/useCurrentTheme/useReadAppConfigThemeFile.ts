@@ -5,7 +5,7 @@ import getAppPath from "@/utils/appPath.ts";
  */
 const useReadAppConfigThemeFile = () => {
   return () => {
-    return new Promise((resolve: (values: { [key: string]: any }) => void, reject: (value: Error) => void) => {
+    return new Promise((resolve: (values: { [key: string]: string }) => void, reject: (value: Error) => void) => {
       getAppPath().then((appPath: string) => {
         const jsonPath = appPath+'\\theme.config.json';
         window.electron.ipcRenderer.send('hasFile',jsonPath);

@@ -59,6 +59,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('fileWriteReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
+      console.log(error)
       event.returnValue = (error as Error).message;
     }
   })
