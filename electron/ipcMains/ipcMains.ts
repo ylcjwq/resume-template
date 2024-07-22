@@ -18,6 +18,17 @@ const ipcFn = (app: Electron.App) => {
     }
   })
 
+  // 文件读取操作
+  ipcMain.on('fileReadImg', async (event, filePath, encoding) => {
+    try {
+      const data = await fileAction.read(filePath, encoding)
+      event.reply('fileReadImgReply', data);
+    } catch (error) {
+      // 如果发生错误，返回错误信息
+      event.returnValue = (error as Error).message;
+    }
+  })
+
   // 文件目录读取操作
   ipcMain.on('fileReadDir', async (event, filePath) => {
     try {
