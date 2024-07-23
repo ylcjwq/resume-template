@@ -55,8 +55,20 @@ const ipcFn = (app: Electron.App) => {
   // 文件读取操作
   ipcMain.on('fileWrite', async (event, filePath, content, encoding) => {
     try {
-      const data = await fileAction.write(filePath, content, encoding)
+      const data = await fileAction.write(filePath, content, encoding);
       event.reply('fileWriteReply', data);
+    } catch (error) {
+      // 如果发生错误，返回错误信息
+      console.log(error)
+      event.returnValue = (error as Error).message;
+    }
+  })
+
+  // 创建文件夹操作
+  ipcMain.on('mkdirDir', async (event, filePath) => {
+    try {
+      const data = await fileAction.mkdirDir(filePath);
+      event.reply('mkdirDirReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
       console.log(error)
