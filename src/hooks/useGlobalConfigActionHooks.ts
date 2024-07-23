@@ -12,7 +12,7 @@ export function useReadGlobalConfigFile() {
         window.electron.ipcRenderer.on('fileReadReply', (_, data: string) => {
           console.log(JSON.parse(data))
           resolve(JSON.parse(data));
-          window.electron.ipcRenderer.removeListener('fileReadReply')
+          window.electron.ipcRenderer.removeAllListeners('fileReadReply')
         })
       });
     });
