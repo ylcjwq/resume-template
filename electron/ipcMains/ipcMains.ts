@@ -1,4 +1,4 @@
-import {ipcMain, shell} from "electron";
+import {ipcMain, shell, dialog} from "electron";
 import fileAction from './file.ts'
 
 const ipcFn = (app: Electron.App) => {
@@ -74,6 +74,20 @@ const ipcFn = (app: Electron.App) => {
       event.returnValue = (error as Error).message;
     }
   })
+
+  // 应用设置，保存自定义存储路径
+  ipcMain.on('open-save-resume-path', (event) => {
+    dialog
+      .showOpenDialog({
+        properties: ['openDirectory'],
+      })
+      .then((result) => {
+        event.reply('save-resume-path-reply', result.filePaths);
+      })
+      .catch((err) => {
+        event.reply('save-resume-path-reply', err);
+      });
+  });
 }
 
 export default ipcFn
