@@ -24,6 +24,7 @@ const useUpdateAppConfigThemeFile = () => {
           window.electron.ipcRenderer.on('fileWriteReply', (_, data: string) => {
             console.log(data);
             callback && callback();
+            window.electron.ipcRenderer.removeAllListeners('fileWriteReply');
           })
         }
       });

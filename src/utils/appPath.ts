@@ -9,6 +9,7 @@ const getAppPath = () => {
                 } else {
                     reject(new Error('项目路径错误'));
                 }
+                window.electron.ipcRenderer.removeAllListeners('replyPath');
             });
         }
     );

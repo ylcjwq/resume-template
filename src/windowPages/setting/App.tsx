@@ -32,6 +32,7 @@ const Setting = () => {
       } else {
         new Error('自定义存储路径失败！')
       }
+      window.electron.ipcRenderer.removeAllListeners('save-resume-path-reply');
     })
   };
   return (

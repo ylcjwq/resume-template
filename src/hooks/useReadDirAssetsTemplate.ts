@@ -33,6 +33,8 @@ const useReadDirAssetsTemplate = () => {
             if (processedFiles === files.length * 2) {
               dispatch(setTemplateList(templateList));
               dispatch(setSelectTemplate(templateList[0]));
+              window.electron.ipcRenderer.removeAllListeners('fileReadDirReply');
+              window.electron.ipcRenderer.removeAllListeners('fileReadImgReply');
             }
           };
 

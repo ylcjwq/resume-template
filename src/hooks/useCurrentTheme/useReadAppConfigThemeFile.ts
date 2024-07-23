@@ -15,10 +15,12 @@ const useReadAppConfigThemeFile = () => {
             window.electron.ipcRenderer.on('fileReadReply', (_, data: string) => {
               console.log(JSON.parse(data))
               resolve(JSON.parse(data));
+              window.electron.ipcRenderer.removeAllListeners('fileReadReply');
             })
           } else {
             reject(new Error('配置文件不存在'));
           }
+          window.electron.ipcRenderer.removeAllListeners('hasFileReply');
         })
       });
     });
