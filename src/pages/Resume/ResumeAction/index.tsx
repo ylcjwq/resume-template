@@ -1,9 +1,14 @@
-import './index.scss'
+import style from './index.module.scss'
 import { useNavigate } from 'react-router'
 import Button from '@/components/Button'
 import {useSelector} from "react-redux";
 import {State} from "@/type/storeState.ts";
 import toPrintPdf from "@/utils/htmlToPDF.ts";
+import { createUID } from '@/utils';
+import { intToDateString } from '@/utils/time';
+import getAppPath from '@/utils/appPath';
+import { useReadGlobalConfigFile, useUpdateGlobalConfigFile } from '@/hooks/useGlobalConfigActionHooks';
+
 const ResumeAction = () => {
 
   const navigate = useNavigate();
@@ -15,9 +20,9 @@ const ResumeAction = () => {
   };
 
   return (
-    <div className={'actions'}>
-      <div className={'back'} onClick={() => navigate('/')}>返回</div>
-      <Button size="middle" className="export-btn" onClick={onExport}>导出PDF</Button>
+    <div className={style.actions}>
+      <div className={style.back} onClick={() => navigate('/')}>返回</div>
+      <Button size="middle" className={style.exportBtn} onClick={onExport}>导出PDF</Button>
     </div>
   )
 }
