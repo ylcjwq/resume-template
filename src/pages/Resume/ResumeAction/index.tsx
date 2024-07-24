@@ -27,7 +27,7 @@ const ResumeAction = () => {
     const prefix = `${date}_${base?.username}_${work?.job}_${createUID()}.json`;
     // 如果路径中不存在 resumeCache 文件夹，则默认创建此文件夹
     if (resumeSavePath && resumeSavePath.search('resumeCache') > -1) {
-      window.electron.ipcRenderer.send('fileWrite', `${resumeSavePath}/${prefix}`, resume, 'utf-8');
+      window.electron.ipcRenderer.send('fileWrite', `${resumeSavePath}/${prefix}`, JSON.stringify(resume), 'utf-8');
       window.electron.ipcRenderer.on('fileWriteReply', (_, data: string) => {
         console.log(data);
         window.electron.ipcRenderer.removeAllListeners('fileWriteReply');
@@ -37,7 +37,7 @@ const ResumeAction = () => {
       window.electron.ipcRenderer.on('mkdirDirReply', (_, path: string) => {
         console.log(path);
         if (path) {
-          window.electron.ipcRenderer.send('fileWrite', `${path}/${prefix}`, resume, 'utf-8');
+          window.electron.ipcRenderer.send('fileWrite', `${path}/${prefix}`, JSON.stringify(resume), 'utf-8');
           window.electron.ipcRenderer.on('fileWriteReply', (_, data: string) => {
             console.log(data);
             window.electron.ipcRenderer.removeAllListeners('fileWriteReply');

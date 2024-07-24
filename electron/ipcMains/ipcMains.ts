@@ -59,7 +59,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('fileWriteReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      console.log('文件写入错误',error)
+      console.log('write-error',error)
       event.returnValue = (error as Error).message;
     }
   })
@@ -71,7 +71,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('mkdirDirReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      console.log('创建文件夹错误',error)
+      console.log('mkdir-error',error)
       event.returnValue = (error as Error).message;
     }
   })
