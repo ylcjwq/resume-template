@@ -52,14 +52,14 @@ const ipcFn = (app: Electron.App) => {
     }
   })
 
-  // 文件读取操作
+  // 文件写入操作
   ipcMain.on('fileWrite', async (event, filePath, content, encoding) => {
     try {
       const data = await fileAction.write(filePath, content, encoding);
       event.reply('fileWriteReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      console.log(error)
+      console.log('文件写入错误',error)
       event.returnValue = (error as Error).message;
     }
   })
@@ -71,7 +71,7 @@ const ipcFn = (app: Electron.App) => {
       event.reply('mkdirDirReply', data);
     } catch (error) {
       // 如果发生错误，返回错误信息
-      console.log(error)
+      console.log('创建文件夹错误',error)
       event.returnValue = (error as Error).message;
     }
   })
