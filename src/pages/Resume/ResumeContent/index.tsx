@@ -63,7 +63,6 @@ const ResumeContent = () => {
     return (
         <ScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
             {Number(ResumeIndex) === 0 && <UseTemplateList.TemplateOne />}
-            <UseTemplateList.TemplateOne />
             {showFormModal && (
               <>
                   {formName === RESUME_TOOLBAR_MAPS.certificate && <CertificateForm onClose={onClose} />}
