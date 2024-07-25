@@ -26,6 +26,7 @@ const useReadDirAssetsTemplate = () => {
               templateList.push({
                 templateName: files[(processedFiles + 1) / files.length - 1],
                 templateId: createUID(),
+                templateIndex: (processedFiles + 1) / files.length,
                 templateCover: `data:image/png;base64,${base64URL}`,
               });
             }
