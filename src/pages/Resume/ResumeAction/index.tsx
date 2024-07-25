@@ -24,10 +24,6 @@ const ResumeAction = () => {
   const work: TSResume.Work = useSelector((state: State) => state.resumeModel.work);
   const resume = useSelector((state: State) => state.resumeModel);
   const fromPath = searchParams.get('fromPath');
-  const Resumeindex = searchParams.get('index');
-
-  console.log(fromPath, Resumeindex);
-
 
   // 存储数据json
   const saveResumeJson = (resumeSavePath: string) => {

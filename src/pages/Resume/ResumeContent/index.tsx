@@ -17,11 +17,15 @@ import Evaluation from "./UseForm/Evaluation";
 import ProjectExperience from './UseForm/ProjectExperience';
 import SchoolExperience from './UseForm/SchoolExperience';
 import WorkExperience from './UseForm/WorkExperience';
+import {useSearchParams} from "react-router-dom";
 
 const ResumeContent = () => {
     const [height, setHeight] = useState(window.innerHeight);
     const [formName, setFormName] = useState("");
     const [showFormModal, setShowFormModal] = useState(false);
+    const [searchParams] = useSearchParams();
+
+    const ResumeIndex = searchParams.get('index');
 
     useMount(() => {
         document.addEventListener(MESSAGE_EVENT_NAME_MAPS.OPEN_FORM_MODAL, onReceive);
@@ -58,6 +62,7 @@ const ResumeContent = () => {
 
     return (
         <ScrollBox maxHeight={height - HEADER_ACTION_HEIGHT}>
+            {Number(ResumeIndex) === 0 && <UseTemplateList.TemplateOne />}
             <UseTemplateList.TemplateOne />
             {showFormModal && (
               <>

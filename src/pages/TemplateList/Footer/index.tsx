@@ -8,7 +8,6 @@ function Footer() {
   const navigate = useNavigate();
   const selectTemplate = useSelector((state: TemplateState) => state.templateModel.selectTemplate);
   const onMadeResume = () => {
-    console.log('跳转前往制作页面');
     navigate({
       pathname: '/resume',
       search: `?index=${selectTemplate.templateIndex}&fromPath=templateList`,
