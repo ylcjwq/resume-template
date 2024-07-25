@@ -8,7 +8,7 @@ const templateModel = createSlice({
     selectTemplate: {
       templateId: '',
       templateName: '',
-      templateIndex: '',
+      templateIndex: 0,
       templateCover: '',
     },
   },
