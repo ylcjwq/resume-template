@@ -4,6 +4,7 @@ import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import RecommendSkill, { IRecommendSkill } from '@/constants/skill.ts';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from '@/hooks/useUpdateResume';
 
 interface SkillProps {
   onClose: () => void;
@@ -15,6 +16,8 @@ interface SkillProps {
  * @constructor
  */
 const Skill = ({ onClose }: SkillProps) => {
+
+  const updateResume = useUpdateResume();
   const skill: string = useSelector((state: State) => state.resumeModel.skill);
 
   return (
@@ -49,6 +52,7 @@ const Skill = ({ onClose }: SkillProps) => {
                     }}
                     onClick={() => {
                       const value = `${skill}${skill ? '｜' : ''}${skill.label}`;
+                      updateResume<string>('skill', value);
                     }}
                   >
                     {skill.label}
@@ -58,7 +62,9 @@ const Skill = ({ onClose }: SkillProps) => {
             </div>
             <Input
               type="textarea"
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('skill', e.target.value);
+              }}
               rows={5}
               value={skill}
               placeholder="例如 Vue、React"

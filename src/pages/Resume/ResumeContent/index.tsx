@@ -44,7 +44,7 @@ const ResumeContent = () => {
     /**
      * 接收订阅事件的传参
      */
-    const onReceive = (e: CustomEvent) => {
+    const onReceive = (e: Event) => {
         MessageDispatch.receive(e, (data: {formName: string}) => {
             console.log('发布订阅，传参值为: ', data);
             setShowFormModal(true);
