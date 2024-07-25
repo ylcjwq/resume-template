@@ -11,7 +11,7 @@ function Footer() {
     console.log('跳转前往制作页面');
     navigate({
       pathname: '/resume',
-      search: `?index=${selectTemplate.templateIndex}&fromPath=/templateList`,
+      search: `?index=${selectTemplate.templateIndex}&fromPath=templateList`,
     });
   };
 

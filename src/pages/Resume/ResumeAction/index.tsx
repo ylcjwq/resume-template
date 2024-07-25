@@ -1,5 +1,6 @@
 import style from './index.module.scss'
 import { useNavigate } from 'react-router'
+import { useSearchParams } from 'react-router-dom';
 import Button from '@/components/Button'
 import {useSelector} from "react-redux";
 import {State} from "@/type/storeState.ts";
@@ -14,12 +15,19 @@ import Modal from '@/components/Modal';
 const ResumeAction = () => {
 
   const navigate = useNavigate();
+  const readAppConfigThemeFile = useReadGlobalConfigFile();
+  const updateGlobalConfigFile = useUpdateGlobalConfigFile();
+
+  const [searchParams] = useSearchParams();
   const [showModal, setShowModal] = useState(false);
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
   const work: TSResume.Work = useSelector((state: State) => state.resumeModel.work);
   const resume = useSelector((state: State) => state.resumeModel);
-  const readAppConfigThemeFile = useReadGlobalConfigFile();
-  const updateGlobalConfigFile = useUpdateGlobalConfigFile();
+  const fromPath = searchParams.get('fromPath');
+  const Resumeindex = searchParams.get('index');
+
+  console.log(fromPath, Resumeindex);
+
 
   // 存储数据json
   const saveResumeJson = (resumeSavePath: string) => {
@@ -67,9 +75,20 @@ const ResumeAction = () => {
     });
   };
 
+  // 返回
+  const onBack = () => {
+    if (fromPath === '') {
+      navigate('/');
+    } else if (fromPath === 'templateList') {
+      navigate('/templateList');
+    } else {
+      console.log('here');
+    }
+  };
+
   return (
     <div className={style.actions}>
-      <div className={style.back} onClick={() => navigate('/')}>返回</div>
+      <div className={style.back} onClick={onBack}>返回</div>
       <Button size="middle" className={style.exportBtn} onClick={() => setShowModal(true)}>导出PDF</Button>
       {showModal && (
         <Modal.Confirm
