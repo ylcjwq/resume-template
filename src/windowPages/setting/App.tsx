@@ -25,10 +25,10 @@ const Setting = () => {
 
   const onChangePath = () => {
     window.electron.ipcRenderer.send('open-save-resume-path', '');
-    window.electron.ipcRenderer.on('save-resume-path-reply', (_, arg: string) => {
+    window.electron.ipcRenderer.on('save-resume-path-reply', (_, arg: string[]) => {
       if(arg) {
-        setResumeSavePath(arg);
-        updateGlobalConfigFile('resumeSavePath', arg);
+        setResumeSavePath(arg[0]);
+        updateGlobalConfigFile('resumeSavePath', arg[0]);
       } else {
         new Error('自定义存储路径失败！')
       }
