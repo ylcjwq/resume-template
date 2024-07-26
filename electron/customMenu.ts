@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 let setting: BrowserWindow | null
 
-function createWindow() {
+const createWindow = () => {
   setting = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
     width: 720,
@@ -53,7 +53,7 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
     ],
   },
   {
-    label: '自定义的编辑菜单栏',
+    label: '快捷键',
     submenu: [
       {
         label: '复制',
