@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 let setting: BrowserWindow | null
 
-const createWindow = () => {
+export const createSettingWindow = () => {
   setting = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
     width: 720,
@@ -48,7 +48,7 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
     ],
   },
   {
-    label: '编辑',
+    label: '快捷键',
     submenu: [
       {
         label: '撤销',
@@ -62,6 +62,11 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
       },
       {
         type: 'separator',
+      },
+      {
+        label: '修改数据储存路径',
+        accelerator: 'CmdOrCtrl+T',
+        role: 'cut',
       },
       {
         label: '剪切',
@@ -155,7 +160,7 @@ const customMenu: (MenuItemConstructorOptions | MenuItem)[] = [
       {
         label: '修改数据储存路径',
         click: () => {
-          createWindow();
+          createSettingWindow();
         },
       },
       {

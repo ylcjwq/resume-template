@@ -1,9 +1,9 @@
-import {app, BrowserWindow, Menu} from 'electron'
+import {app, BrowserWindow, Menu, globalShortcut} from 'electron'
 // import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import ipcFn from './ipcMains/ipcMains.ts'
-import customMenu from "./customMenu.ts";
+import customMenu, {createSettingWindow} from "./customMenu.ts";
 
 // const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -73,6 +73,16 @@ app.on('ready', () => {
   Menu.setApplicationMenu(menu);
 });
 
-app.whenReady().then(createWindow)
+app.on('will-quit', () => {
+  // 注销快捷键事件
+  globalShortcut.unregister('CmdOrCtrl+T');
+});
+
+app.whenReady().then(() => {
+  createWindow();
+  globalShortcut.register('CmdOrCtrl+T', () => {
+    createSettingWindow();
+  })
+})
 
 ipcFn(app);
