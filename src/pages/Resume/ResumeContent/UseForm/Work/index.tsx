@@ -3,6 +3,7 @@ import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from "@/hooks/useUpdateResume";
 
 type WorkProps = {
   onClose: () => void;
@@ -14,7 +15,10 @@ type WorkProps = {
  * @constructor
  */
 const Work = ({ onClose }: WorkProps) => {
+
+  const updateResume = useUpdateResume()
   const work: TSResume.Work = useSelector((state: State) => state.resumeModel.work);
+
   return (
     <Modal.Dialog
       title="工作期望"
@@ -33,7 +37,9 @@ const Work = ({ onClose }: WorkProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('work/job', e.target.value);
+              }}
               value={work?.job || ''}
               placeholder="求职岗位"
               allowClear={true}
@@ -47,7 +53,9 @@ const Work = ({ onClose }: WorkProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('work/city', e.target.value);
+              }}
               value={work?.city || ''}
               placeholder="请输入意愿城市"
               allowClear={true}

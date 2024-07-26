@@ -3,6 +3,7 @@ import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from "@/hooks/useUpdateResume";
 
 type EducationProps = {
   onClose: () => void;
@@ -14,6 +15,8 @@ type EducationProps = {
  * @constructor
  */
 const Education = ({ onClose }: EducationProps) => {
+
+  const updateResume = useUpdateResume();
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);
 
   return (
@@ -34,7 +37,9 @@ const Education = ({ onClose }: EducationProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume('base/school', e.target?.value || '');
+              }}
               value={base?.school || ''}
               placeholder="请输入贵校"
               allowClear={true}
@@ -48,7 +53,9 @@ const Education = ({ onClose }: EducationProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume('base/major', e.target?.value || '');
+              }}
               value={base?.major || ''}
               placeholder="请输入专业"
               allowClear={true}
@@ -62,7 +69,9 @@ const Education = ({ onClose }: EducationProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume('base/degree', e.target?.value || '');
+              }}
               value={base?.degree || ''}
               placeholder="学士？硕士？还是博士？"
               allowClear={true}
@@ -81,6 +90,7 @@ const Education = ({ onClose }: EducationProps) => {
                   ...base?.onSchoolTime,
                   beginTime: e.target.value,
                 };
+                updateResume<object>('base/onSchoolTime', nextTime);
               }}
               value={base?.onSchoolTime?.beginTime || ''}
               placeholder="入学时间"
@@ -94,6 +104,7 @@ const Education = ({ onClose }: EducationProps) => {
                   ...base?.onSchoolTime,
                   endTime: e.target.value,
                 };
+                updateResume<object>('base/onSchoolTime', nextTime);
               }}
               value={base?.onSchoolTime?.endTime || ''}
               placeholder="毕业时间"

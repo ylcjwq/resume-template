@@ -15,6 +15,7 @@ type PersonalProps = {
  * @constructor
  */
 const Personal = ({onClose}: PersonalProps) => {
+
   const updateResume = useUpdateResume()
   const hobby: string = useSelector((state: State) => state.resumeModel.hobby);
   const base: TSResume.Base = useSelector((state: State) => state.resumeModel.base);

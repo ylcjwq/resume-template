@@ -15,6 +15,7 @@ interface EvaluationProps {
  * @constructor
  */
 const Evaluation = ({ onClose }: EvaluationProps) => {
+
   const updateResume = useUpdateResume();
   const evaluation: string = useSelector((state: State) => state.resumeModel.evaluation);
 

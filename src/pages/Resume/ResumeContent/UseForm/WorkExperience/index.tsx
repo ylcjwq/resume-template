@@ -16,6 +16,7 @@ interface WorkExperienceProps {
  * @constructor
  */
 const WorkExperience = ({ onClose }: WorkExperienceProps) => {
+
   const updateResume = useUpdateResume();
   const workExperience: TSResume.WorkExperience[] = useSelector((state: State) => state.resumeModel.workExperience);
   const updateDataList = (newDataList: AdapterExperienceType[]) => {
