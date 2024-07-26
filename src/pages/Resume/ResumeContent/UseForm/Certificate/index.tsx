@@ -3,13 +3,17 @@ import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from '@/hooks/useUpdateResume'
 
 type CertificateProps = {
   onClose: () => void;
 }
 
 const Certificate = ({ onClose }: CertificateProps) => {
+
+  const updateResume = useUpdateResume();
   const certificate: string = useSelector((state: State) => state.resumeModel.certificate);
+
   return (
     <Modal.Dialog
       title="荣誉证书"
@@ -29,7 +33,9 @@ const Certificate = ({ onClose }: CertificateProps) => {
           <div className={style.right}>
             <Input
               type="textarea"
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('certificate', e.target.value)
+              }}
               rows={5}
               value={certificate || ''}
               placeholder="展示你的奖项和证书吧"

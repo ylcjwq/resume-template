@@ -3,6 +3,7 @@ import Modal from '@/components/Modal';
 import Input from '@/components/Input';
 import { useSelector } from 'react-redux';
 import {State} from "@/type/storeState.ts";
+import useUpdateResume from "@/hooks/useUpdateResume";
 
 type ContactProps = {
   onClose: () => void;
@@ -14,6 +15,8 @@ type ContactProps = {
  * @constructor
  */
 const Contact = ({ onClose }: ContactProps) => {
+
+  const updateResume = useUpdateResume();
   const contact: TSResume.Contact = useSelector((state: State) => state.resumeModel.contact);
 
   return (
@@ -34,7 +37,9 @@ const Contact = ({ onClose }: ContactProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('contact/phone', e.target.value);
+              }}
               value={contact?.phone || ''}
               placeholder="请输入电话号码"
               allowClear={true}
@@ -48,7 +53,9 @@ const Contact = ({ onClose }: ContactProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('contact/email', e.target.value);
+              }}
               value={contact?.email || ''}
               placeholder="请输入邮箱"
               allowClear={true}
@@ -64,7 +71,9 @@ const Contact = ({ onClose }: ContactProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('contact/github', e.target.value);
+              }}
               value={contact?.github || ''}
               placeholder="Github/Gitee 地址"
               allowClear={true}
@@ -80,7 +89,9 @@ const Contact = ({ onClose }: ContactProps) => {
           </div>
           <div className={style.right}>
             <Input
-              // onChange={(e) => {}}
+              onChange={(e) => {
+                updateResume<string>('contact/juejin', e.target.value);
+              }}
               value={contact?.juejin || ''}
               placeholder="掘金地址"
               allowClear={true}
