@@ -16,7 +16,7 @@ function Footer() {
 
   return (
     <div className={style.footer}>
-      <Button size="middle" className={style.useBtn} onClick={onMadeResume}>
+      <Button size="middle" width={200} className={style.useBtn} onClick={onMadeResume}>
         以此模版前往制作简历
       </Button>
     </div>
