@@ -17,3 +17,8 @@
 - 简历可导出生成pdf
 
 ## 部分截图
+
+![img.png](public/img.png)
+![img_1.png](public/img_1.png)
+![img_2.png](public/img_2.png)
+![img.png](public/img_4.png)
