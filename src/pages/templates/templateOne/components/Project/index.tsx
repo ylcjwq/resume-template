@@ -19,7 +19,7 @@ function Project() {
           </div>
           <div className="right">
             <p>
-              <span>visResumeMook 可视化简历平台 -前端工程师</span>
+              <span>可视化简历平台 -前端工程师</span>
             </p>
           </div>
           <div className="text">

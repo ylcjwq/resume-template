@@ -11,7 +11,7 @@ function Work() {
       <ul className="list">
         <li className="flex">
           <div className="left">
-            <p>2019.07-至今</p>
+            <p>2023.03-至今</p>
             <p>前端工程师</p>
           </div>
           <div className="right">

@@ -1,14 +1,13 @@
 /**
  * @desc 头像
- * @author pengdaokuan
  */
-import './index.scss';
+import style from './index.module.scss'
 import AvatarImage from '@/assets/react.svg';
 
 function Avatar() {
   return (
-    <div className="box">
-      <div className="avatar">
+    <div className={style.box}>
+      <div className={style.avatar}>
         <img src={AvatarImage}  alt={''}/>
       </div>
     </div>

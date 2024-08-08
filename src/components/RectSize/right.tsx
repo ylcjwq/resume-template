@@ -1,5 +1,4 @@
 import React from 'react';
-// import styleModule from './index.module.scss';
 
 interface IProps {
   /**
