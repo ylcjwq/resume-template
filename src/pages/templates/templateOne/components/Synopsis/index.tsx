@@ -7,8 +7,8 @@ import './index.scss';
 function Synopsis() {
   return (
     <div className="content">
-      <p className="name">彭道宽</p>
-      <p className="job">前端工程师</p>
+      <p className="name">袁隆成</p>
+      <p className="job">前端攻城狮</p>
       <p className="summary">
         {[
           '熟悉Vue与React全家桶，参与过大型项目开发，了解数据结构与算法',
